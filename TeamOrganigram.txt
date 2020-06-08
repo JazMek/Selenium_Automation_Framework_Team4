@@ -1,0 +1,64 @@
+* Amazon:
+        Karim : Home,Change Your Language
+        Lamara : Best Sellers
+        Ibrahim :new releases
+        Achour : amazon basics
+        Hakim : whole foods
+        Salah : gift cards
+
+
+* Booking :
+          Karim : Flight + Hotel
+          Lamara :Car Rentals
+          Ibrahim : Attractions
+          Achour:Airport Taxis
+          Hakim:Stays
+          Salah:Flights
+
+* Empire :
+          Karim:Providers
+          Lamara:Producers
+          Ibrahim:Employers
+          Achour:Medicaid
+          Hakim:Medicare
+          Salah:Individual & Family
+
+* Geico :
+          Karim:Home page
+          Lamara:vehicle insurance
+          Ibrahim:property insurance
+          Achour:Home page
+          Hakim:additional-insurance
+          Salah:business insurance
+
+* Netflix :
+           Karim :Home page
+           Lamara :Account
+           Ibrahim :TVshows
+           Achour :Movies
+           Hakim :Latest
+           Salah :DVDs
+
+* Sprint :
+          Karim :About Sprint
+          Lamara :Activate
+          Ibrahim :Support
+          Achour :Deals
+          Hakim :Devices
+          Salah :Plans
+
+* TD_Bank :
+          Karim :Personal
+          Lamara :Small Business
+          Ibrahim : Learning
+          Achour :Products
+          Hakim : Commercial
+          Salah :Investing & Wealth
+
+* United_Airlines :
+          Karim:HELP
+          Lamara:DEALS
+          Ibrahim:MILEAGEPLUS® PROGRAM
+          Achour:TRAVEL INFO
+          Hakim:MY TRIPS
+          Salah:Book
