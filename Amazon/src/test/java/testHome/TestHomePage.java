@@ -24,10 +24,9 @@ public class TestHomePage extends WebAPI {
 //
 //        homePage.searchBox.sendKeys("t shirt");
 //        homePage.searchButton.click();
-//
-//
 //}
-//@Test
+
+    //@Test
 //public  void testwholefoods(){
 //init();
 //        homePage.wholefoodsPage();

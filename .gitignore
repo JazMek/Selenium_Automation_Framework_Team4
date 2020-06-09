@@ -2,12 +2,14 @@
 ### Java template
 *.iml
 *.idea
+*.xml
 # Compiled class file
 *.class
 *.xml
 *.png
 # Log file
 *.log
+*.png
 
 # BlueJ files
 *.ctxt
