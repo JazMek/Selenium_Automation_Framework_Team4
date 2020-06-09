@@ -7,7 +7,8 @@
 *.xml
 # Compiled class file
 *.class
-
+*.xml
+*.png
 # Log file
 *.log
 *.png
