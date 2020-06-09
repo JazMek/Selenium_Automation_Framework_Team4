@@ -4,11 +4,13 @@
 *.txt
 *.iml
 *.idea
+*.xml
 # Compiled class file
 *.class
 
 # Log file
 *.log
+*.png
 
 # BlueJ files
 *.ctxt
