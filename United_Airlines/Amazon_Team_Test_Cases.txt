@@ -1,46 +1,23 @@
 
+
+//********************************Brahim United_Airlines test cases Test Cases*********************************************************
+
 //********************************Amazon Test Cases*********************************************************
 
+
 Test case N01:
-
-
-
-
-
-
-
-
             Test Stapes:
                        Stepe01:
 
                        Stepe02:
-
-
-
-
-
-            Test Steps:
-                       Step01:
-
-                       Step02:
-
 
                        Stepe03:
 
 
 Test case N02:
 
-
             Test Stapes:
                        Stepe01:
-
-
-
-            Test Stapes:
-                       Stepe01:
-
-            Test Steps:
-                       Step01:
 
                        Stepe02:
 
