@@ -29,9 +29,6 @@ public class HomePage extends WebAPI {
         Assert.assertEquals(driver.getCurrentUrl(),ExpectedUrl,"the url used didn't navigate to the Best Sellers Page");
 
 
-
-
-
     }
 
 

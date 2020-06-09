@@ -1,7 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
+
+*.png
+
 *.html
 *.txt
+
 *.iml
 *.idea
 *.xml
@@ -20,6 +24,7 @@
 .mtj.tmp/
 
 # Package Files #
+*.xml
 
 *.war
 *.nar

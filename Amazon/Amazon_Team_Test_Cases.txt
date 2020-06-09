@@ -3,9 +3,12 @@
 
 Test case N01:
 
- 30206NY_HAKIM
 
- 3415NY_IBRAHIM
+
+
+
+
+
 
             Test Stapes:
                        Stepe01:
@@ -14,11 +17,13 @@ Test case N01:
 
 
 
+
+
             Test Steps:
                        Step01:
 
                        Step02:
- master
+
 
                        Stepe03:
 
@@ -26,16 +31,16 @@ Test case N01:
 Test case N02:
 
 
- 30206NY_HAKIM
-=======
- 3415NY_IBRAHIM
+            Test Stapes:
+                       Stepe01:
+
+
 
             Test Stapes:
                        Stepe01:
 
             Test Steps:
                        Step01:
- master
 
                        Stepe02:
 
