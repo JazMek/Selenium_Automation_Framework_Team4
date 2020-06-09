@@ -2,18 +2,30 @@
 //********************************Amazon Test Cases*********************************************************
 
 Test case N01:
+ 3415NY_IBRAHIM
             Test Stapes:
                        Stepe01:
 
                        Stepe02:
+
+            Test Steps:
+                       Step01:
+
+                       Step02:
+ master
 
                        Stepe03:
 
 
 Test case N02:
 
+ 3415NY_IBRAHIM
             Test Stapes:
                        Stepe01:
+
+            Test Steps:
+                       Step01:
+ master
 
                        Stepe02:
 

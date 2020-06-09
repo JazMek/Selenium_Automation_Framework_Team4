@@ -30,6 +30,8 @@ public class TestHomePage extends WebAPI {
 
 
        public void testcheckTexte(){
+
+
       init();
       homePage.checkTexte();
   }
