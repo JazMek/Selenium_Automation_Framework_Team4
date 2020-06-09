@@ -1,24 +1,60 @@
 
-//********************************Amazon Test Cases*********************************************************
 
-Test case N01:
+//********************************30182NY_Achour_Amazon_Team_Test_Cases*********************************************************
+
+30182NY_Achour Test case N01:
             Test Steps:
-                       Step01:
+                       Step01:Navigate to amazon home page
 
-                       Step02:
+                       Step02:click on todays deals button
 
-                       Stepe03:
+                       Step03:Subscribe to todays deals
+
+                       Step04:get back to amazon home page
 
 
-Test case N02:
+30182NY_Achour Test case N02:
 
             Test Steps:
-                       Step01:
+                       Step01:Navigate to amazon home page
+
+                       Step02:click on todays deals button
+
+                       Step03:click on warehouse section
+
+                       Step04:See all categories
+
+30182NY_Achour Test case N03:
+
+            Test Stapes:
+                       Step01:Navigate to amazon home page
+
+                        Step02:click on todays deals button
+
+                       Step03:check box to select on amazon devices
+
+                       Step04:click on Add to cart button
+
+30182NY_Achour Test case N04:
+
+            Test Stapes:
+                        Step01:Navigate to amazon home page
+
+                         Step02:click on todays deals button
+
+                         Stepe03:explore the next page section
+
+
+
+30182NY_Achour Test case N05:
+
+            Test Stapes:
+                       Stepe01:
 
                        Stepe02:
 
                        Stepe03:
-Test case N03:
+30182NY_Achour Test case N06:
 
             Test Stapes:
                        Stepe01:
@@ -27,23 +63,7 @@ Test case N03:
 
                        Stepe03:
 
-Test case N04:
-
-            Test Stapes:
-                       Stepe01:
-
-                       Stepe02:
-
-                       Stepe03:
-Test case N05:
-
-            Test Stapes:
-                       Stepe01:
-
-                       Stepe02:
-
-                       Stepe03:
-Test case N06:
+30182NY_Achour Test case N07:
 
             Test Stapes:
                        Stepe01:
@@ -52,16 +72,7 @@ Test case N06:
 
                        Stepe03:
 
-Test case N07:
-
-            Test Stapes:
-                       Stepe01:
-
-                       Stepe02:
-
-                       Stepe03:
-
-Test case N08:
+30182NY_Achour Test case N08:
 
              Test Stapes:
                         Stepe01:
@@ -70,14 +81,14 @@ Test case N08:
 
                         Stepe03:
 
-Test case N09:
+30182NY_Achour Test case N09:
              Test Stapes:
                         Stepe01:
 
                         Stepe02:
 
                         Stepe03:
-Test case N010:
+30182NY_Achour Test case N010:
              Test Stapes:
                         Stepe01:
 

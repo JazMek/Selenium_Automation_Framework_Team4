@@ -38,17 +38,7 @@ public class BaseClass extends WebAPI {
     @FindBy(how= How.CSS ,using=searchButtonCSS)
     public static WebElement searchButton;
 
-//    //Hakim webelementconnection:
-//    @FindBy(how= How.XPATH ,using=amazonWholefoodsbuttonXP)
-//    public static WebElement amazonWholefoodsbutton;
-//
-//    @FindBy(how= How.CSS ,using=amazonWholefoodstextCSS)
-//    public static WebElement amazonWholefoodstext;
 
-
-    //*******Check Best sellers Page Url******************
-    @FindBy(how= How.CSS ,using=ClickBestSellersCSS)
-    public static WebElement ClickBestSellers;
 
     public static BaseClass baseClass;
     public static void loginToAmazonAccount(){
@@ -59,5 +49,51 @@ public class BaseClass extends WebAPI {
         loginButton.click();
     }
 
-}
 
+
+
+    //30182NY_Achour Webelements *********************************************
+//30182NY_Achour Webelement case N01:
+    @FindBy(how= How.XPATH ,using = todaysDealsButtonXP)
+    public static WebElement todaysDealsButton;
+
+    @FindBy(how= How.XPATH ,using=SubscribeButtonXP)
+    public static WebElement SubscribeButton;
+
+    @FindBy(how= How.XPATH ,using=BacktoHomeBageXP)
+    public static WebElement BacktoHomeBage;
+//30182NY_Achour Webelement case N02:
+
+   @FindBy(how= How.XPATH ,using=warehouseSectionXP)
+   public static WebElement warehouseSection;
+
+    @FindBy(how= How.XPATH ,using=seeAllCategoriesXP)
+    public static WebElement seeAllCategories;
+
+//30182NY_Achour Webelement case N03:
+
+   @FindBy(how= How.XPATH ,using=amazonDeviceXP)
+   public static WebElement amazonDevice;
+
+    @FindBy(how= How.XPATH ,using=AddToCartXP)
+    public static WebElement AddToCart;
+
+//30182NY_Achour Webelement case N04:
+
+    @FindBy(how= How.XPATH ,using=spportoutdoorsXP)
+    public static WebElement spportoutdoors;
+
+    @FindBy(how= How.XPATH ,using=seedetauilsXP)
+    public static WebElement seedetauils;
+
+    @FindBy(how= How.XPATH ,using=addAllToListXP)
+    public static WebElement addAllToList;
+
+//30182NY_Achour Webelement case N04:
+
+   @FindBy(how= How.XPATH ,using=watchNowXP)
+    public static WebElement watchNow;
+
+    @FindBy(how= How.CLASS_NAME,using=closeButtonCS)
+    public static WebElement closeButton;
+}
