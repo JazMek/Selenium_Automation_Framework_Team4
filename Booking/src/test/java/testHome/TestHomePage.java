@@ -24,12 +24,20 @@ public class TestHomePage extends WebAPI {
            homePage.checkTitle();
 
 
+    }
+
+    @Test
+    public void testcheckTexte(){
+
+
+
          }
 
   @Test
 
 
        public void testcheckTexte(){
+
 
 
       init();
