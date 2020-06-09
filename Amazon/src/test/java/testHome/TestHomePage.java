@@ -3,6 +3,7 @@ package testHome;
 import Home.BaseClass;
 import Home.HomePage;
 import common.WebAPI;
+import okio.Timeout;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
@@ -25,19 +26,47 @@ public class TestHomePage extends WebAPI {
 //        homePage.searchBox.sendKeys("t shirt");
 //        homePage.searchButton.click();
 //
-//
-//}
-//@Test
-//public  void testwholefoods(){
-//init();
-//        homePage.wholefoodsPage();
-//        homePage.verifywholefoodslogo();
-//}
-    @Test
-    public void testBestSellersPage() {
+//    }
+//30181NY_salah first test case :
+ @Test
+    public void testclickOnFindaGift(){
         init();
-        homePage.BestSellersPage();
-        homePage.VerifyBestSellersUrl();
+        homePage.clickOnFindaGift();
+
+ }
+    //30181NY_salah  test case #2:
+ @Test
+
+    public void testamazonFindAGiftText(){
+     init();
+        homePage.amazonFindAGiftText();
+
+ }
+ @Test
+    public void testamazonEGIFTSButton(){
+        init();
+     homePage.amazonEGIFTSButton();
+ }
+    @Test
+    public void testPriceAllPricesScrollDown(){
+        init();
+        homePage.PriceAllPricesScrollDown();
+    }
+
+    @Test
+    public void testamazonFindGiftHarryPotterandtheSorcerersStoneXP(){
+        init();
+        homePage.amazonFindGiftHarryPotterandtheSorcerersStoneXP();
 
     }
+
+
+
+
+
+
+
+
+
+
 }

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import javax.swing.*;
+
 import static Home.AmazonPageWebElement.*;
 
 
@@ -38,19 +40,35 @@ public class BaseClass extends WebAPI {
     @FindBy(how= How.CSS ,using=searchButtonCSS)
     public static WebElement searchButton;
 
-//    //Hakim webelementconnection:
-//    @FindBy(how= How.XPATH ,using=amazonWholefoodsbuttonXP)
-//    public static WebElement amazonWholefoodsbutton;
-//
-//    @FindBy(how= How.CSS ,using=amazonWholefoodstextCSS)
-//    public static WebElement amazonWholefoodstext;
+// Find a Gift Webelement (salah):
 
+   // test #1 :
+    @FindBy(how= How.XPATH ,using=amazonFindAGiftbuttonXP)
+    public static WebElement amazonFindAGiftbutton;
+    @FindBy(how= How.XPATH ,using=amazonFindAGiftTextXP)
+    public static WebElement amazonFindAGiftText;
 
-    //*******Check Best sellers Page Url******************
-    @FindBy(how= How.CSS ,using=ClickBestSellersCSS)
-    public static WebElement ClickBestSellers;
+    // test #2 :
+    @FindBy(how = How.XPATH ,using = amazonEGIFTSButtonXP)
+    public static WebElement amazonEGIFTSButton;
+
+    // test #3 :
+    @FindBy(how = How.XPATH ,using =amazonGiftWrapIconXP )
+    public static WebElement amazonGiftWrapIcon;
+
+    // test #4 :
+    @FindBy(how = How.XPATH ,using =PriceAllPricesScrollDownXP)
+    public static WebElement PriceAllPricesScrollDown;
+
+    @FindBy(how = How.XPATH,using = amazonFindGiftHarryPotterandtheSorcerersStoneXP)
+    public static WebElement amazonFindGiftHarryPotterandtheSorcerersStone;
+    @FindBy(how = How.XPATH,using = amazonFindGiftHarryPotterReadForFreeXP)
+    public static WebElement amazonFindGiftHarryPotterReadForFree;
+
 
     public static BaseClass baseClass;
+
+
     public static void loginToAmazonAccount(){
         signin.click();
         userNameField.sendKeys("team4WDNY2020@gmail.com");
@@ -58,6 +76,11 @@ public class BaseClass extends WebAPI {
         passWordField.sendKeys("Team42020");
         loginButton.click();
     }
+
+
+
+
+
 
 }
 
