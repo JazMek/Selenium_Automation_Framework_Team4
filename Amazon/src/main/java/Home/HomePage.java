@@ -1,38 +1,24 @@
 package Home;
 
+
 import common.WebAPI;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import static Home.BaseClass.ClickBestSellers;
+import static Home.AmazonPageWebElement.*;
+
+
 
 public class HomePage extends WebAPI {
 
-    //    public void wholefoodsPage() {
-//        amazonWholefoodsbutton.click();
-//
-//
-//    }
-//public static String expecttext="";
-//    public void verifywholefoodslogo() {
-//        amazonWholefoodstext.isDisplayed();
-//
-//    }
-//
-    public void BestSellersPage() {
-        ClickBestSellers.click();
 
-    }
-
-    public static String ExpectedUrl="https://www.amazon.com/gp/bestsellers/?ref_=nav_cs_bestsellers";
-    public void VerifyBestSellersUrl(){
-
-        Assert.assertEquals(driver.getCurrentUrl(),ExpectedUrl,"the url used didn't navigate to the Best Sellers Page");
+    public void LoginToAmazon() {
+        HamburgerMenu.click();
+        hmenuCustomerName.click();
+        ApEmail.sendKeys("team4WDNY2020@gmail.com",Keys.ENTER);
+        ApPassword.sendKeys("Team42020", Keys.ENTER);
 
 
     }
-
-
-
-
-
 }

@@ -18,8 +18,8 @@
     <test name="Booking Home">
         <classes>
                         <class name="testHome.TestHomePage"></class>
-<!--                        <class name="testHome.TestLoginPage"></class>-->
-            <!--            <class name="home.TestHomePage"/>-->
+                        <class name="testHome.TestLoginPage"></class>
+                        <class name="testHome.TestAirportTaxis"></class>
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->

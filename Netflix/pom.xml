@@ -39,7 +39,7 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>target/test-classes/AmazonTestRunner.xml</suiteXmlFiles>
+<!--                        <suiteXmlFiles>target/test-classes/AmazonTestRunner.xml</suiteXmlFiles>-->
                         <!--                        <suiteXmlFile>target/test-classes/CNNTestRunner.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>

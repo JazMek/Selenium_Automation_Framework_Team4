@@ -33,11 +33,12 @@ public class BaseClass extends WebAPI {
 
 
 public static BaseClass baseClass;
-    public static void loginToAmazonAccount(){
+    public static void loginToNetflixAccount(){
         signinButton.click();
         userNameField.sendKeys("team4WDNY2020@gmail.com");
         passWordField.sendKeys("Team42020");
         signinButton2.click();
+
     }
 
 }

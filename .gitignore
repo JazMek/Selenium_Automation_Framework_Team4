@@ -8,14 +8,19 @@
 
 *.iml
 *.idea
-*.xml
 # Compiled class file
 *.class
+
+
+
+target
+
 *.xml
 *.png
 # Log file
 *.log
-*.png
+
+
 
 # BlueJ files
 *.ctxt

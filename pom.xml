@@ -144,8 +144,8 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>target/test-classes/AmazonTestRunner.xml</suiteXmlFiles>
-                        <suiteXmlFile>target/test-classes/BookingTestRunner.xml</suiteXmlFile>
+<!--                        <suiteXmlFiles>target/test-classes/AmazonTestRunner.xml</suiteXmlFiles>-->
+<!--                        <suiteXmlFile>target/test-classes/BookingTestRunner.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

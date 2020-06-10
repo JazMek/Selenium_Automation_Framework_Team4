@@ -1,13 +1,16 @@
-* Amazon:
+* Amazon:(Work on home page)
+
         Karim : Home,Change Your Language
         Lamara : Best Sellers
         Ibrahim :new releases
         Achour : amazon basics
         Hakim : whole foods
+
         Salah : Find a Gift
 
 
-* Booking :
+
+* Booking :(work on different pages)
           Karim : Flight + Hotel
           Lamara : Car Rentals
           Ibrahim : Attractions
