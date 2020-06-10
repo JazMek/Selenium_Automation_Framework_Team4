@@ -31,4 +31,9 @@ public class HomePage extends WebAPI {
         Assert.assertEquals(gettexte.getText(),expectTexte,"The texte is not fond");
 
     }
+
+//    public void checkBox() {
+//
+//
+//    }
 }

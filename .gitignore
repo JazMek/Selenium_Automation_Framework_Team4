@@ -8,13 +8,16 @@
 *.png
 # Log file
 *.log
-
+target
 # BlueJ files
 *.ctxt
-
+*.txt
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-
+# team files
+Amazon_Team_Test_Cases.txt
+TeamOrganigram.txt
+.gitignore
 # Package Files #
 
 *.war

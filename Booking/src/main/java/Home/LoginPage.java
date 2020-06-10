@@ -39,6 +39,8 @@ public class LoginPage extends WebAPI {
     public static WebElement loginButton;
 
 
+
+
     public static void loginToBooking(){
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

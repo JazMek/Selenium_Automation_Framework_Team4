@@ -1,38 +1,53 @@
 package Home;
 
-public class AmazonPageWebElement {
 
-    public static final String searchBoxCSS ="#twotabsearchtextbox";
-    public static final String searchButtonCSS ="#nav-search > form > div.nav-right > div > input";
-    public static final String signinButtonXP="//div[@id='nav-flyout-ya-signin']//span[@class='nav-action-inner'][contains(text(),'Sign in')]";
-    public static final String signinButton2CSS="#nav-flyout-ya-signin > a > span";
-    public static final String userNameFieldXP =" //input[@id='ap_email']";
-    public static final String continueButtonXP="//input[@id='continue']";
-    public static final String passWordFieldXP=" //input[@id='ap_password']";
-    public static final String loginButtonID="signInSubmit";
-    public static final String signinCSS ="#nav-link-accountList > div > span";
+import common.WebAPI;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
-//        //********************** hakim web element ******************
-//    public static final String amazonWholefoodsbuttonXP ="//*[@id=\"nav-xshop\"]/a[6]";
-//    public static final String amazonWholefoodstextCSS ="#nav-subnav > a.nav-a.nav-hasImage > span > img";
-//
-//
-////    ***************************karim web element **************************************************************
-//
-//   //Test caise one webElement:
+public class AmazonPageWebElement  {
 
-    //*********************LAMARAS WebElements***********************
-    public static final String ClickBestSellersCSS="#nav-xshop > a:nth-child(2)";
-//    public static final String CheckTitleBestSellersCSS="";
-
-
-
-
-
-
-
-
-
-
-
+ //***********************Ibrahim Web Element ***************************
+// navigate to new releases page web elements
+ public static final String clickNewReleasePageCss = "#nav-xshop > a:nth-child(4)";
+ public static final String checkReleasesPageTextXPATH = "//*[@id='zg_banner_text_wrapper']";
+ public static String expectedResult = "Amazon Hot New Releases";
+ // New Releases in Baby page Web Elements
+ public static final String clickBabylinckCSS = "#zg_browseRoot > ul > li:nth-child(9) > a";
+ public static final String checkNewReleasesInBabyPageCSS = "#zg-right-col > h1";
+ public static final String clickNextPageCSS = "#zg-center-div > div.a-row.a-spacing-top-mini > div > ul > li.a-last > a";
+ public static final String checkPagelinkXPATH = "//*[@id=\"zg-center-div\"]/div[2]/div/ul/li[1]/a";
+ // mouse hover and click in Baby page Web Elements
+ public static final String hoverMouseCSS = "#nav-subnav > a:nth-child(5) > span.nav-a-content";
+ public static final String clickUnderMenuItemXPATH = "//*[@id='nav-flyout-aj:https://m.media-amazon.com/images/G/01/verticalstores/megamenu/us_baby_megamenu_test_2019_2.json:subnav-sl-megamenu-1:0']/div[2]/div/div[2]/ul/li[4]/a";
+ // click check box option
+ public static final String CheckBoxCSS = "#leftNav > ul:nth-child(6) > div > li > span > span > div > label > input[type=checkbox]";
+ //  specify the object location strategy for new releases page WebElements
+ @FindBy(how = How.CSS, using = clickNewReleasePageCss)
+ public static WebElement clickNewReleasePage;
+ @FindBy(how = How.XPATH, using = checkReleasesPageTextXPATH)
+ public static WebElement checkReleasesPageTextX;
+ //specify the object location strategy for New Releases in Baby page WebElements
+ @FindBy(how = How.CSS, using = clickBabylinckCSS)
+ public static WebElement clickBabylinck;
+ @FindBy(how = How.CSS, using = checkNewReleasesInBabyPageCSS)
+ public static WebElement checkNewReleasesInBabyPage;
+ public static String Expected = "New Releases in Baby";
+ //specify the object location strategy for next page WebElements
+ @FindBy(how = How.CSS, using = clickNextPageCSS)
+ public static WebElement clickNextPage;
+ @FindBy(how = How.XPATH, using = checkPagelinkXPATH)
+ public static WebElement checkPagelink;
+ public static String expectedNextpageResult = "←Previous page";
+ //specify the object location strategy for mouse hover Web elements
+ @FindBy(how = How.CSS, using = hoverMouseCSS)
+ public static WebElement hoverMouse;
+ @FindBy(how = How.XPATH, using = clickUnderMenuItemXPATH)
+ public static WebElement clickUnderMenuItemX;
+ //specify the object location strategy for check box
+ @FindBy(how = How.CSS, using = CheckBoxCSS)
+ public static WebElement CheckBox1;
 }
+
+

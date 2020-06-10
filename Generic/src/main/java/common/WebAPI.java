@@ -601,4 +601,16 @@ public class WebAPI {
     }
 
 
+// team new methods
+
+    // method to hover mouse and click
+    public static void HoverMouseAndClickt(WebDriver driver, WebElement element) {
+        Actions action= new Actions(driver);
+        action.moveToElement(element).perform();
+
+    }
+
+
+
+
 }

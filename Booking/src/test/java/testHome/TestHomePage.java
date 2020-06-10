@@ -35,7 +35,11 @@ public class TestHomePage extends WebAPI {
   }
 
 
-
+//@Test
+//    public void testCheckBox(){
+//
+//     homePage.checkBox();
+//}
 
 
 
