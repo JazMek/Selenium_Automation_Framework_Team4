@@ -1,13 +1,27 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
+
+*.png
+
+*.html
+*.txt
+
 *.iml
 *.idea
 # Compiled class file
 *.class
-*.txt
+
+
+
+target
+
+*.xml
+*.png
 # Log file
 *.log
-target
+
+
+
 # BlueJ files
 *.ctxt
 
@@ -15,6 +29,7 @@ target
 .mtj.tmp/
 
 # Package Files #
+*.xml
 
 *.war
 *.nar

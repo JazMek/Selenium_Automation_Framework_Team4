@@ -25,4 +25,12 @@ public class TestHomePage extends WebAPI {
 }
 
 
+
+    @Test
+    public void testBestSellersPage() {
+        init();
+        homePage.BestSellersPage();
+        homePage.VerifyBestSellersUrl();
+
+
 }

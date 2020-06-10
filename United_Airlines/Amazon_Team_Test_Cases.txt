@@ -1,75 +1,23 @@
 
 
-//******************************** 30215NY_Karim Amazon Test Cases*********************************************************
+//********************************Brahim United_Airlines test cases Test Cases*********************************************************
 
-Test case N01:
-       Test search for "iphone 11 pro max" in the search box passing by the dropdown menu.
-            Test Stapes:
-                       Stepe01:
-                       Check if we land properly on the Amazon home page.
-
-                       Stepe02:
-                       Use the dropdown menu on the search box to select "Electronics".
-
-                       Stepe03:
-                       Enter "iphone 11 pro max" in to the search box.
-
-                       Stepe04:
-                       Click on the search box button.
-
-                       Stepe05:
-                       Check if we are redirected to the right page after the search.
-
-
-
-Test case N02:
-
-            Test Stapes:
-                       Stepe01:
-
-=======
 //********************************Amazon Test Cases*********************************************************
 
+
 Test case N01:
-
-
-
-
-
-
-
-
             Test Stapes:
                        Stepe01:
 
                        Stepe02:
-
-
-
-
-
-            Test Steps:
-                       Step01:
-
-                       Step02:
-
 
                        Stepe03:
 
 
 Test case N02:
 
-
             Test Stapes:
                        Stepe01:
-
-
-
-            Test Stapes:
-                       Stepe01:
-
-            Test Steps:
-                       Step01:
 
                        Stepe02:
 

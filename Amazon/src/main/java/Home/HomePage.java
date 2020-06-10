@@ -18,5 +18,7 @@ public class HomePage extends WebAPI {
         hmenuCustomerName.click();
         ApEmail.sendKeys("team4WDNY2020@gmail.com",Keys.ENTER);
         ApPassword.sendKeys("Team42020", Keys.ENTER);
+
+
     }
 }

@@ -4,6 +4,7 @@ import Home.BaseClass;
 import Home.HomePage;
 import common.WebAPI;
 import org.openqa.selenium.support.PageFactory;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -24,15 +25,18 @@ public class TestHomePage extends WebAPI {
            homePage.checkTitle();
 
 
+
          }
 
   @Test
 
 
        public void testcheckTexte(){
+
       init();
       homePage.checkTexte();
   }
+
 
 
 

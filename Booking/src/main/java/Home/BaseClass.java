@@ -34,7 +34,7 @@ public class BaseClass extends WebAPI {
     }
 
 
-
-
+    public void loginToBooking() {
+    }
 }
 

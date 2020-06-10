@@ -5,14 +5,16 @@
         Ibrahim :new releases
         Achour : amazon basics
         Hakim : whole foods
-        Salah : Find a gift
+
+        Salah : Find a Gift
+
 
 
 * Booking :(work on different pages)
           Karim : Flight + Hotel
-          Lamara :Car Rentals
+          Lamara : Car Rentals
           Ibrahim : Attractions
-          Achour:Airport Taxis
+          Achour : Airport Taxis
           Hakim:Stays
           Salah:Flights
 
