@@ -15,9 +15,9 @@ target
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 # team files
-Amazon_Team_Test_Cases.txt
-TeamOrganigram.txt
-.gitignore
+#Amazon_Team_Test_Cases.txt
+#TeamOrganigram.txt
+#.gitignore
 # Package Files #
 
 *.war
