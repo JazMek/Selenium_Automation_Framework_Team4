@@ -1,41 +1,41 @@
 package Home;
-
 import common.WebAPI;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
-import static Home.BaseClass.ClickBestSellers;
-
+import static Home.AmazonPageWebElement.*;
 public class HomePage extends WebAPI {
-
-    //    public void wholefoodsPage() {
-//        amazonWholefoodsbutton.click();
-//
-//
-//    }
-//public static String expecttext="";
-//    public void verifywholefoodslogo() {
-//        amazonWholefoodstext.isDisplayed();
-//
-//    }
-//
+    public static HomePage homePage;
+    public static AmazonPageWebElement amazonPageWebElement;
+    public static void init() {
+        homePage = PageFactory.initElements(driver, HomePage.class);
+        amazonPageWebElement = PageFactory.initElements(driver, AmazonPageWebElement.class);
+    }
+    
+    //******** LAMARAs *********************
     public void BestSellersPage() {
         ClickBestSellers.click();
-
     }
-
-    public static String ExpectedUrl="https://www.amazon.com/gp/bestsellers/?ref_=nav_cs_bestsellers";
     public void VerifyBestSellersUrl(){
-
         Assert.assertEquals(driver.getCurrentUrl(),ExpectedUrl,"the url used didn't navigate to the Best Sellers Page");
-
-
-
-
-
     }
-
-
-
-
-
+    public void BooksPage() {
+        ClickBooks.click();
+  }
+    public void VerifyBooksUrl() {
+        Assert.assertEquals(driver.getCurrentUrl(),ExpectedUrl1,"Didn't navigate to 'Amazon Books' functionality");
+    }
+    public void ChooseTheBestBook() {
+        ChooseTheBestBook.click();
+    }
+    public void SelectPaperBackFormat() {
+        SelectPaperBackFormat.click();
+    }
+    public void AddToCart() {
+      AddToCart.click();
+    }
+    public void clickOnCreateListElement() {
+        ClickCreateList.click();
+    }
 }
+
+

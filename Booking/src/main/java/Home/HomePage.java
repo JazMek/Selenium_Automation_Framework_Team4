@@ -1,34 +1,35 @@
 package Home;
-
 import common.WebAPI;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-import org.testng.Assert;
-
-import static Home.BaseClass.homePage;
-
+import java.util.concurrent.TimeUnit;
 import static Home.BookingPageWebElement.*;
-
 public class HomePage extends WebAPI {
-
-
-    @FindBy(how= How.XPATH,using=gettexteXP)
-    public static WebElement gettexte;
-
-    public static String ExpectTitle="Booking.com | Official site | The best hotels & accommodations";
-    public static String expectTexte ="Find deals for any season";
+//*******   Login Method ************
+    public static void loginToBooking(){
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        signinButton2.click();
+        emailField.sendKeys("team4WDNY2020@gmail.com");
+        nextButton.click();
+        passWordField.sendKeys("Team42020");
+        loginButton.click();
+    }
     public void checkTitle() {
-
-        String ActualTitle= driver.getTitle();
-        Assert.assertEquals(ActualTitle,ExpectTitle,"The expected Title does mot mutch");
-
+        String ExpectTitle="Booking.com Account";
+        getTitle(ExpectTitle);
+        
+    }
+    //---------------------------------------
+    
+    public void CarRentalsClick(){
+        CarRentalsClick.click();
     }
 
-    public void checkTexte() {
-
-
-        Assert.assertEquals(gettexte.getText(),expectTexte,"The texte is not fond");
-
+    public void FillUpCheckBox() {
+        //CheckBox.click();
+        //CheckBox.sendKeys("New");
+        CarRentalsClick.click();
+        //CheckBox.click();
+        Type.sendKeys("New York City - John F Kennedy Intl, US (JFK)");
+        
+        
     }
 }

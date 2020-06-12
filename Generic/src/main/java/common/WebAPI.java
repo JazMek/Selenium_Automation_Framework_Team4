@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -37,16 +38,13 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class WebAPI {
-
     //ExtentReport
     public static ExtentReports extent;
-
     @BeforeSuite
     public void extentSetup(ITestContext context) {
         ExtentManager.setOutputDirectory(context);
         extent = ExtentManager.getInstance();
     }
-
     @BeforeMethod
     public void startExtent(Method method) {
         String className = method.getDeclaringClass().getSimpleName();
@@ -54,14 +52,12 @@ public class WebAPI {
         ExtentTestManager.startTest(method.getName());
         ExtentTestManager.getTest().assignCategory(className);
     }
-
     protected String getStackTrace(Throwable t) {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         t.printStackTrace(pw);
         return sw.toString();
     }
-
     @AfterMethod
     public void afterEachTestMethod(ITestResult result) {
         ExtentTestManager.getTest().getTest().setStartedTime(getTime(result.getStartMillis()));
@@ -85,32 +81,26 @@ public class WebAPI {
         }
         driver.quit();
     }
-
     @AfterSuite
     public void generateReport() {
         extent.close();
     }
-
-
     private Date getTime(long millis) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(millis);
         return calendar.getTime();
     }
-
-
     //Browser SetUp
     public static WebDriver driver = null;
     public String browserstack_username = "";
     public String browserstack_accesskey = "";
     public String saucelabs_username = "";
     public String saucelabs_accesskey = "";
-
     @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
                       @Optional("windows") String os, @Optional("10") String os_version, @Optional("chrome") String browserName, @Optional("83")
-                              String browserVersion, @Optional("https://www.google.com") String url) throws IOException {
+                              String browserVersion, @Optional("https://www.booking.com") String url) throws IOException {
 
         if (useCloudEnv == true) {
             if (cloudEnvName.equalsIgnoreCase("browserstack")) {
@@ -126,7 +116,6 @@ public class WebAPI {
         driver.get(url);
         //driver.manage().window().maximize();
     }
-
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName) {
 
         if (browserName.equalsIgnoreCase("chrome")) {
@@ -159,8 +148,6 @@ public class WebAPI {
         }
         return driver;
     }
-
-
     public WebDriver getCloudDriver(String envName, String envUsername, String envAccessKey, String os, String os_version, String browserName,
                                     String browserVersion) throws IOException {
 
@@ -187,13 +174,11 @@ public class WebAPI {
         }
         return driver;
     }
-
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true) 
     public void cleanUp() {
         //driver.close();
         driver.quit();
     }
-
     //helper methods
     public void clickOnElement(String locator) {
         try {
@@ -210,7 +195,6 @@ public class WebAPI {
             }
         }
     }
-
     public void typeOnElement(String locator, String value) {
         try {
             driver.findElement(By.cssSelector(locator)).sendKeys(value);
@@ -218,7 +202,6 @@ public class WebAPI {
             driver.findElement(By.xpath(locator)).sendKeys(value);
         }
     }
-
     public static void typeOnElementNEnter(String locator, String value) {
         try {
             driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
@@ -237,7 +220,6 @@ public class WebAPI {
             }
         }
     }
-
     public static void typeOnElementNEnter(String locator, String value, WebDriver driver1) {
         try {
             driver1.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
@@ -256,15 +238,12 @@ public class WebAPI {
             }
         }
     }
-
     public void clearField(String locator) {
         driver.findElement(By.id(locator)).clear();
     }
-
     public void navigateBack() {
         driver.navigate().back();
     }
-
     public static void captureScreenshot(WebDriver driver, String screenshotName) {
         DateFormat df = new SimpleDateFormat("M-d-y");
         Date date = new Date();
@@ -284,13 +263,11 @@ public class WebAPI {
         }
 
     }
-
     public static String convertToString(String st) {
         String splitString = "";
         splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
         return splitString;
     }
-
     public static void clickOnElement(String locator, WebDriver driver1) {
         try {
             driver1.findElement(By.cssSelector(locator)).click();
@@ -302,7 +279,6 @@ public class WebAPI {
             }
         }
     }
-
     public void typeOnInputField(String locator, String value) {
         try {
             driver.findElement(By.cssSelector(locator)).sendKeys(value);
@@ -311,38 +287,29 @@ public class WebAPI {
         }
 
     }
-
-
     public void clickByXpath(String locator) {
         driver.findElement(By.xpath(locator)).click();
     }
-
     public void typeByCss(String locator, String value) {
         driver.findElement(By.cssSelector(locator)).sendKeys(value);
     }
-
     public void typeByCssNEnter(String locator, String value) {
         driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
     }
-
     public void typeByXpath(String locator, String value) {
         driver.findElement(By.xpath(locator)).sendKeys(value);
     }
-
     public void takeEnterKeys(String locator) {
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
     }
-
     public void clearInputField(String locator) {
         driver.findElement(By.cssSelector(locator)).clear();
     }
-
     public List<WebElement> getListOfWebElementsById(String locator) {
         List<WebElement> list = new ArrayList<WebElement>();
         list = driver.findElements(By.id(locator));
         return list;
     }
-
     public static List<String> getTextFromWebElements(String locator) {
         List<WebElement> element = new ArrayList<WebElement>();
         List<String> text = new ArrayList<String>();
@@ -354,7 +321,6 @@ public class WebAPI {
 
         return text;
     }
-
     public static List<String> getTextFromWebElements(String locator, WebDriver driver1) {
         List<WebElement> element = new ArrayList<WebElement>();
         List<String> text = new ArrayList<String>();
@@ -366,53 +332,43 @@ public class WebAPI {
 
         return text;
     }
-
     public static List<WebElement> getListOfWebElementsByCss(String locator) {
         List<WebElement> list = new ArrayList<WebElement>();
         list = driver.findElements(By.cssSelector(locator));
         return list;
     }
-
     public static List<WebElement> getListOfWebElementsByCss(String locator, WebDriver driver1) {
         List<WebElement> list = new ArrayList<WebElement>();
         list = driver1.findElements(By.cssSelector(locator));
         return list;
     }
-
     public List<WebElement> getListOfWebElementsByXpath(String locator) {
         List<WebElement> list = new ArrayList<WebElement>();
         list = driver.findElements(By.xpath(locator));
         return list;
     }
-
     public String getCurrentPageUrl() {
         String url = driver.getCurrentUrl();
         return url;
     }
-
     public void navigateForward() {
         driver.navigate().forward();
     }
-
     public String getTextByCss(String locator) {
         String st = driver.findElement(By.cssSelector(locator)).getText();
         return st;
     }
-
     public String getTextByXpath(String locator) {
         String st = driver.findElement(By.xpath(locator)).getText();
         return st;
     }
-
     public String getTextById(String locator) {
         return driver.findElement(By.id(locator)).getText();
     }
-
     public String getTextByName(String locator) {
         String st = driver.findElement(By.name(locator)).getText();
         return st;
     }
-
     public List<String> getListOfString(List<WebElement> list) {
         List<String> items = new ArrayList<String>();
         for (WebElement element : list) {
@@ -420,16 +376,13 @@ public class WebAPI {
         }
         return items;
     }
-
     public void selectOptionByVisibleText(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByVisibleText(value);
     }
-
     public static void sleepFor(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
-
     public void mouseHoverByCSS(String locator) {
         try {
             WebElement element = driver.findElement(By.cssSelector(locator));
@@ -444,7 +397,6 @@ public class WebAPI {
         }
 
     }
-
     public void mouseHoverByXpath(String locator) {
         try {
             WebElement element = driver.findElement(By.xpath(locator));
@@ -459,69 +411,56 @@ public class WebAPI {
         }
 
     }
-
     //handling Alert
     public void okAlert() {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
-
     public void cancelAlert() {
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
     }
-
     //iFrame Handle
     public void iframeHandle(WebElement element) {
         driver.switchTo().frame(element);
     }
-
     public void goBackToHomeWindow() {
         driver.switchTo().defaultContent();
     }
-
     //get Links
     public void getLinks(String locator) {
         driver.findElement(By.linkText(locator)).findElement(By.tagName("a")).getText();
     }
-
     //Taking Screen shots
     public void takeScreenShot() throws IOException {
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         //FileUtils.copyFile(file, new File("screenShots.png"));
     }
-
     //Synchronization
     public void waitUntilClickAble(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-
     public void waitUntilVisible(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-
     public void waitUntilSelectable(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         boolean element = wait.until(ExpectedConditions.elementToBeSelected(locator));
     }
-
     public void upLoadFile(String locator, String path) {
         driver.findElement(By.cssSelector(locator)).sendKeys(path);
         /* path example to upload a file/image
            path= "C:\\Users\\rrt\\Pictures\\ds1.png";
          */
     }
-
     public void clearInput(String locator) {
         driver.findElement(By.cssSelector(locator)).clear();
     }
-
     public void keysInput(String locator) {
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
     }
-
     //Handling New Tabs
     public static WebDriver handleNewTab(WebDriver driver1) {
         String oldTab = driver1.getWindowHandle();
@@ -530,12 +469,10 @@ public class WebAPI {
         driver1.switchTo().window(newTabs.get(0));
         return driver1;
     }
-
     public static boolean isPopUpWindowDisplayed(WebDriver driver1, String locator) {
         boolean value = driver1.findElement(By.cssSelector(locator)).isDisplayed();
         return value;
     }
-
     public void typeOnInputBox(String locator, String value) {
         try {
             driver.findElement(By.id(locator)).sendKeys(value, Keys.ENTER);
@@ -553,8 +490,6 @@ public class WebAPI {
             System.out.println("CSS locator didn't work");
         }
     }
-
-
     // Customer Made Helper Methods for Amex.com
     public void brokenLink() throws IOException {
         //Step:1-->Get the list of all the links and images
@@ -584,21 +519,64 @@ public class WebAPI {
             System.out.println(activeLinks.get(j).getAttribute("href") + "--------->>> " + response);
         }
     }
-
     public void inputValueInTextBoxByWebElement(WebElement webElement, String value) {
 
         webElement.sendKeys(value + Keys.ENTER);
 
     }
-
     public void clearInputBox(WebElement webElement) {
         webElement.clear();
     }
-
     public String getTextByWebElement(WebElement webElement) {
         String text = webElement.getText();
         return text;
     }
+    //*************    team's new methods   ************************************************************8
+    // method to hover mouse and click
+    public static void HoverMouseAndClick(WebDriver driver, WebElement element) {
+        Actions action= new Actions(driver);
+        action.moveToElement(element).perform();
 
+    }
+    //Assert method to get title
+    public static void getTitle(String expectedTitle){
+        String title=driver.getTitle();
+        Assert.assertEquals(title ,expectedTitle,"title doesn't match");
+        System.out.println(title);
+    }
+    //Assert method to get url
+    public static void getUrl(String expectedUrl){
+        String url=driver.getCurrentUrl();
+        Assert.assertEquals(url,expectedUrl,"Url doesn't match");
+        System.out.println(url);
+    }
+    //windows setup
+    public static void setUpWindow(){
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+    }
+    // Minimize the browser
+        //driver.manage().window().setPosition(new Point(0, -1000));
+    //Set Size of browser
+        //driver.manage().window().setSize(new Dimension(1920, 1080));
+    
+    // Get Page Source: This command is used to get the source code of the web page. It returns a string.
+     public static void GetPageSource(){
+         //driver.getPageSource();  or
+         String sourceCode = driver.getPageSource();
+    }
+    // Navigate Forward
+    public static void NavigateForward(){
+        driver.navigate().forward();
+    }
+    //Refresh Page
+    public static void RefreshPage(){
+        driver.navigate().refresh();
+    }
+    //Navigate Directly To a specific URL
+    public static void NavigateDirectlyToURL(){
+        driver.navigate().to("URL");
+        //driver.navigate().to("https://www.amazon.com");
+    }
 
 }
