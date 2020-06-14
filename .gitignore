@@ -1,27 +1,15 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
-
-*.png
-
-*.html
-*.txt
-
 *.iml
 *.idea
+*.xml
 # Compiled class file
 *.class
 
-
-
-target
-
-*.xml
-*.png
 # Log file
 *.log
-
-
-
+*.png
+target
 # BlueJ files
 *.ctxt
 
@@ -29,8 +17,7 @@ target
 .mtj.tmp/
 
 # Package Files #
-*.xml
-
+.txt
 *.war
 *.nar
 *.ear
@@ -40,4 +27,8 @@ target
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+TeamOrganigram.txt
+
+
 
