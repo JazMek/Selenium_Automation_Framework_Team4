@@ -1,141 +1,59 @@
 package testHome;
-
-import Home.BaseClass;
-import Home.HomePage;
 import common.WebAPI;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utility.DataReaderTeam4;
 
+import java.io.IOException;
+import static Home.HomePage.homePage;
+import static Home.HomePage.init;
 public class TestHomePage extends WebAPI {
-    public static HomePage homePage;
-    public static BaseClass baseClass;
-
-    public static void init() {
-        homePage = PageFactory.initElements(driver, HomePage.class);
-        baseClass = PageFactory.initElements(driver, BaseClass.class);
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //30182NY_Achour Test cases************************************************************************************
-
-/*test case#01:-As customer i should navigate to amazon home page
-               - As customer i should click in the todays deals button and get the next page
-               -As customer i should have option to subscribe to todays deals then get back to the main page*/
-@BeforeMethod
-public void navigateTourl(){
-    String url="https://www.amazon.com/";
-    driver.get(url);}
-
-
-   @Test
-    public void testTodaysDealsPage(){
-        init();
-        homePage.todaysDealsPage();
-    }
-/*30182NY_Achour test case#02:-As customer i should navigate to amazon home page
-               - As customer i should click in the todays deals button and get the next page
-               -As customer i should see warehouse section
-               -As customer i want to see all departements */
-  @Test
-    public void testWareHouseDealsPage(){
-      init();
-      homePage.WareHouseDealsPage();
-  }
-/*30182NY_Achour test case#03:-As customer i should navigate to amazon home page
-               - As customer i should click in the todays deals button and get the next page
-               -As customer i should have a check box to select Amazon devices
-               -As customer i should  want to get option to add to cart */
+/*test case#01:-As customer i should navigate to amazon home page*/
     @Test
-    public void testcheckbox() throws InterruptedException {
-        init();
-        homePage.checkbox();
-    }
-
-/*30182NY_Achour test case#04:-As customer i should navigate to amazon home page
-                             - As customer i should click in the todays deals button and get the next page
-                              -As customer i want to explore the next section*/
-
-    @Test
-    public void testspoortOutdoors(){
-        init();
-        homePage.spoortOutdoors();
-    }
-/*30182NY_Achour test case#05:-As customer i should navigate to amazon home page
-                             - As customer i should click in the todays deals button and get the next page*/
-
-
-
-   @Test
-
-   public void testWatchnowComercial(){
-       init();
-       homePage.WatchnowComercial();
-   }
-
-
-
-
-
-
-
-
-
-
-
-    @AfterMethod
-    public void tearDown(){
-        driver.quit();
-    }
+    public void testAmazonPage() throws InterruptedException { init();
+    homePage.AmazonPage();
 }
+   @Test
+    public void testTodaysDealsPage() throws InterruptedException { init();homePage.todaysDealsPage(); }
+  @Test
+    public void testWareHouseDealsPage() throws InterruptedException {init();homePage.WareHouseDealsPage(); }
+    @Test
+    public void testcheckbox() throws InterruptedException { init();homePage.checkbox(); }
+    @Test
+    public void testspoortOutdoors() throws InterruptedException { init();homePage.spoortOutdoors(); }
+    @Test
+    public void testArowsOnTodaysDeals() throws InterruptedException {
+        init();
+        homePage.arowLeftRight(); }
+    @Test
+    public void testSortByFilter() throws InterruptedException {
+        init();
+        homePage.sorBy(); }
+@Test
+    public void testDealOfTheDay(){
+    init();
+    homePage.DealofTheDay(); }
+    @Test
+    public void testTodayDealsCategories() throws InterruptedException {
+    init();
+    homePage.todaysDealsCategories(); }
+       @Test
+   public void testNextPageAndGoToTop() throws InterruptedException {
+       init();
+       homePage.NextPageAndGoToTop(); }
+       @Test
+       public void testGetList(){
+           init();
+         homePage.GetList(); }
+@DataProvider
+ public Object[] getTestData()throws IOException, InvalidFormatException {
+ Object[] data = DataReaderTeam4.fileReader3("sheet1","/Users/ashorouali/Desktop/Ashor.xlsx");
+ return data;}
+
+ @Test (dataProvider="getTestData")
+ public void TestChecksearchBox(String ProdactName) throws IOException, InvalidFormatException {
+ init();
+ homePage.CheckDropDownSearchList(ProdactName);
+ }}

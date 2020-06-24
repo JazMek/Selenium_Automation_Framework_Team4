@@ -38,9 +38,7 @@
 30182NY_Achour Test case N04:
 
             Test Stapes:
-                        Step01:Navigate to amazon home page
 
-                         Step02:click on todays deals button
 
                          Stepe03:explore the next page section
 
@@ -49,11 +47,12 @@
 30182NY_Achour Test case N05:
 
             Test Stapes:
-                       Stepe01:
+                      Step01:Navigate to amazon home page
 
-                       Stepe02:
+                       Step02:click on todays deals button
 
-                       Stepe03:
+                       Stepe03:scroll to see the whole section
+
 30182NY_Achour Test case N06:
 
             Test Stapes:

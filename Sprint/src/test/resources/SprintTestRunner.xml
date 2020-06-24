@@ -17,7 +17,7 @@
 
     <test name="Sprint Home">
         <classes>
-            <!--            <class name="home.TestHomePage"></class>-->
+                        <class name="testHome.TestDealPage"></class>
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->

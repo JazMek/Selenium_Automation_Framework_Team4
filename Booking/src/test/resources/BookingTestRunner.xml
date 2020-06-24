@@ -14,12 +14,10 @@
     <parameter name="browserVersion" value="83"/>
     <parameter name="url" value="https://www.booking.com/"/>
 
-
     <test name="Booking Home">
         <classes>
-                        <class name="testHome.TestHomePage"></class>
-<!--                        <class name="testHome.TestLoginPage"></class>-->
-            <!--            <class name="home.TestHomePage"/>-->
+
+                        <class name="testHome.testAirportTaxiPage"/>
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->

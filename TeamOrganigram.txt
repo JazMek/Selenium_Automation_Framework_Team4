@@ -62,3 +62,24 @@
           Achour:TRAVEL INFO
           Hakim:MY TRIPS
           Salah:Book
+
+
+
+             //type on element by locator css/id/or name and passe the value(locator,value)
+              //impliment methodes navigation methode
+              //clicking by xpath
+              //clicking by css
+              //witing methode like sleep for and imlicit wiat
+               //windows setUp
+              //scrool down
+              //scroll left//scroll right
+              //get title/get text /get url most of modules
+              //mouse hover by driver and webelement<netflix>
+              //mouse over by locator <most of it empire>
+              //typing methode locator and value <most of module>
+              //clear input field <united>
+              //screen shot <sprint>
+              //get list get text <most of moduls>
+              //exel read
+              //exel read dataprovider <united ,booking,Amazon>
+              //sql send key <united>
