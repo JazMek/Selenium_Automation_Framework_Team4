@@ -5,7 +5,7 @@ public class User {
     String stID;
     String stDOB;
 
-    public User(){}
+    public User(String location, String destination, String daytime, String age1, String age2){}
     public User(String stName, String stID){
         this.stName = stName;
         this.stID = stID;

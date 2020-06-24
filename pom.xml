@@ -111,6 +111,7 @@
             </dependency>
 
 
+
         </dependencies>
 
 
@@ -137,8 +138,9 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-<!--                        <suiteXmlFiles>target/test-classes/AmazonTestRunner.xml</suiteXmlFiles>-->
-<!--                        <suiteXmlFile>target/test-classes/BookingTestRunner.xml</suiteXmlFile>-->
+                        <suiteXmlFiles>target/test-classes/AmazonTestRunner.xml</suiteXmlFiles>
+                        <suiteXmlFile>target/test-classes/BookingTestRunner.xml</suiteXmlFile>
+                        <suiteXmlFile>target/test-classes/GeicoTestRunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
