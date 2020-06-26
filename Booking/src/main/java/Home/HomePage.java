@@ -6,12 +6,28 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
 
-import static Home.BaseClass.homePage;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import static Home.BookingPageWebElement.*;
 
 public class HomePage extends WebAPI {
+    public static void loginToBooking(){
 
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        signinButton2.click();
+
+        emailField.sendKeys("team4WDNY2020@gmail.com");
+
+        nextButton.click();
+
+        passWordField.sendKeys("Team42020");
+
+        loginButton.click();
+
+    }
 
     @FindBy(how= How.XPATH,using=gettexteXP)
     public static WebElement gettexte;
@@ -25,10 +41,33 @@ public class HomePage extends WebAPI {
 
     }
 
-    public void checkTexte() {
+
+    public void Find_your_next_flight_deal() {
+        flightslink.click();
+        onewaycheckingbotton.click();
 
 
-        Assert.assertEquals(gettexte.getText(),expectTexte,"The texte is not fond");
+    }
 
+    public void Carrentals() {
+        Carrentalslink.click();
+    }
+
+    public void bookingflightfonction(String from,String to) {
+        flight.click();
+        Onewaytrip.click();
+        tripfrom.click();
+        tripfrom.sendKeys(from);
+        goingto.click();
+        goingto.sendKeys(to);
+        departing.click();
+        departureday.click();
+    }
+    public void Check_brokenLink() throws IOException {
+        brokenLink();
+    }
+    public void bookingcompare() {
+        String expectedcompare_Text = "Browse by property type";
+        compare_Text(expectedcompare_Text,actualtest);
     }
 }

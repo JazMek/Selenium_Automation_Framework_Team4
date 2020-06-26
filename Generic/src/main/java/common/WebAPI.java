@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -600,5 +601,69 @@ public class WebAPI {
         return text;
     }
 
+    //method Scroll Up
+    public static void Page_Scroll_Up(WebDriver driver) {
+        Actions actions = new Actions(driver);
+// Scroll Up using Actions class
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.HOME).perform();
+    }
+    //method Scroll Down
+    public static void Page_Scroll_Down(WebDriver driver) {
+        Actions actions = new Actions(driver);
+// Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+    }
+    //method Scroll Down to The webElement
+    public static void Page_Scroll_DownToElement(WebElement element) {
+        Actions actions = new Actions(driver);
+// Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).moveToElement(element).perform();
+    }
+    public static void setUpBroserbases(WebDriver driver){
+        driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+// driver.manage().window().fullscreen();
+    }
+    //Assert method to get title
+    public static void getTitle(String expectedTitle) {
+        String title = driver.getTitle();
+        Assert.assertEquals(title, expectedTitle, "title doesn't match");
+        System.out.println(title);
+    }
 
+    //Assert method to compare Text
+    public static void compare_Text(String expectedText, WebElement element) {
+        String actualText = element.getText();
+        Assert.assertEquals(actualText, expectedText, "The text doesn't match");
+        System.out.println(actualText);
+
+    }
+    //***** Method to get PageLinksList ***************
+    public static List<WebElement> PageLinksList(WebDriver driver){
+        List<WebElement> linkslist = driver.findElements(By.tagName("a"));
+        linkslist.addAll(driver.findElements(By.tagName("img")));
+        System.out.println("Total number of links and images--------->>> " + linkslist.size());
+        for (int i = 0; i < linkslist.size(); i++) {
+            System.out.println(linkslist.get(i).getText());
+            System.out.println(linkslist.get(i).getAttribute("href"));
+        }
+        return linkslist;
+    }
+    // Press keyboard keys in selenium
+//Press Enter/Return Key method
+    public static void clickEnterKeyboard (WebElement element,String value) {
+        element.sendKeys(value,Keys.ENTER);
+
+    }
+
+    //Assert method to get url
+    public static void getUrl(String expectedUrl) {
+        String url = driver.getCurrentUrl();
+        Assert.assertEquals(url, expectedUrl, "URL doesn't match");
+        System.out.println(url);
+    }
+    public void navigatebacward() {
+        driver.navigate().back();
+    }
 }

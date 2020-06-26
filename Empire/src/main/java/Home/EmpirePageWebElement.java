@@ -1,17 +1,25 @@
 package Home;
 
-public class EmpirePageWebElement {
+import common.WebAPI;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
-    public static final String searchBoxCSS ="#twotabsearchtextbox";
-    public static final String searchButtonCSS ="#nav-search > form > div.nav-right > div > input";
-    public static final String signinButtonXP="//div[@id='nav-flyout-ya-signin']//span[@class='nav-action-inner'][contains(text(),'Sign in')]";
-    public static final String signinButton2CSS="#nav-flyout-ya-signin > a > span";
-    public static final String userNameFieldXP =" //input[@id='ap_email']";
-    public static final String continueButtonXP="//input[@id='continue']";
-    public static final String passWordFieldXP=" //input[@id='ap_password']";
-    public static final String loginButtonID="signInSubmit";
-    public static final String signinCSS ="#nav-link-accountList > div > span";
+public class EmpirePageWebElement extends WebAPI {
+    public static EmpirePageWebElement empirePageWebElement;
+    public static HomePage homePage;
 
+    public static void init() {
+      empirePageWebElement = PageFactory.initElements(driver,EmpirePageWebElement.class);
+      homePage=PageFactory.initElements(driver,HomePage.class);
+        setUpBroserbases(driver);
+
+
+ }
+    public static final String actualtestXP="//p[contains(text(),'The Anthem family of companies provides health cov')]";
+    @FindBy(how= How.XPATH,using =actualtestXP)
+    public static WebElement actualtest;
 
 
 

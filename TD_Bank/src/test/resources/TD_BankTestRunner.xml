@@ -17,8 +17,7 @@
 
     <test name="TD bank Home">
         <classes>
-            <!--            <class name="home.TestHomePage"></class>-->
-            <!--            <class name="home.TestHomePage"/>-->
+            <class name="testHome.TestHomePage"></class>
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->

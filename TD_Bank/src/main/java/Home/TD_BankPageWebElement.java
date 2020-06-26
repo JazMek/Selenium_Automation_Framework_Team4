@@ -1,16 +1,17 @@
 package Home;
 
-public class TD_BankPageWebElement {
+import common.WebAPI;
+import org.openqa.selenium.support.PageFactory;
 
-    public static final String searchBoxCSS ="#twotabsearchtextbox";
-    public static final String searchButtonCSS ="#nav-search > form > div.nav-right > div > input";
-    public static final String signinButtonXP="//div[@id='nav-flyout-ya-signin']//span[@class='nav-action-inner'][contains(text(),'Sign in')]";
-    public static final String signinButton2CSS="#nav-flyout-ya-signin > a > span";
-    public static final String userNameFieldXP =" //input[@id='ap_email']";
-    public static final String continueButtonXP="//input[@id='continue']";
-    public static final String passWordFieldXP=" //input[@id='ap_password']";
-    public static final String loginButtonID="signInSubmit";
-    public static final String signinCSS ="#nav-link-accountList > div > span";
+public class TD_BankPageWebElement extends WebAPI{
+    public static TD_BankPageWebElement td_bankPageWebElement;
+    public static  HomePage homePage;
+
+    public static void init(){
+    td_bankPageWebElement = PageFactory.initElements(driver,TD_BankPageWebElement.class);
+    homePage =PageFactory.initElements(driver,HomePage.class);
+        setUpBroserbases(driver);
+  }
 
 
 
