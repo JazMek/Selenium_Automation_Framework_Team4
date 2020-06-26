@@ -1,11 +1,13 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
+TeamOrganigram.txt
+Amazon_Team_Test_Cases.txt
 *.iml
 *.idea
 # Compiled class file
 *.class
 *.txt
-# Log file
+#Log file
 *.log
 target
 # BlueJ files

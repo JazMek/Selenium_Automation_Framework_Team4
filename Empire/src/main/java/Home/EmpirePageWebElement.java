@@ -1,17 +1,31 @@
 package Home;
 
-public class EmpirePageWebElement {
+import common.WebAPI;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import utility.DataReader;
 
-    public static final String searchBoxCSS ="#twotabsearchtextbox";
-    public static final String searchButtonCSS ="#nav-search > form > div.nav-right > div > input";
-    public static final String signinButtonXP="//div[@id='nav-flyout-ya-signin']//span[@class='nav-action-inner'][contains(text(),'Sign in')]";
-    public static final String signinButton2CSS="#nav-flyout-ya-signin > a > span";
-    public static final String userNameFieldXP =" //input[@id='ap_email']";
-    public static final String continueButtonXP="//input[@id='continue']";
-    public static final String passWordFieldXP=" //input[@id='ap_password']";
-    public static final String loginButtonID="signInSubmit";
-    public static final String signinCSS ="#nav-link-accountList > div > span";
+public class EmpirePageWebElement extends WebAPI {
 
+    public  static HomePage homePage;
+    public  static WebAPI webAPI;
+    public static DataReader dataReader;
+    public static EmpirePageWebElement empirePageWebElement;
+    public static void init(){
+        WebAPI webAPI= PageFactory.initElements(driver, WebAPI.class);
+        homePage= PageFactory.initElements(driver, HomePage.class);
+        empirePageWebElement = PageFactory.initElements(driver,EmpirePageWebElement.class);
+        dataReader=PageFactory.initElements(driver, DataReader.class);
+        setUpBroserbases(driver);
+    }
+
+//phone number verification
+    public static final String EmpirePhonNumdXP ="/html/body/section[1]/div/div/div[2]/p/a";
+    @FindBy(how= How.XPATH,using = EmpirePhonNumdXP )
+    public static WebElement EmpirePhonNumd;
 
 
 

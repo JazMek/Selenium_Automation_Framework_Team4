@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -269,7 +270,7 @@ public class WebAPI {
         DateFormat df = new SimpleDateFormat("M-d-y");
         Date date = new Date();
         df.format(date);
-        System.setProperty("current.date",date.toString().replace(" ","_").replace(":","_"));
+        System.setProperty("current.date", date.toString().replace(" ", "_").replace(":", "_"));
 
         Date d = new Date();
 
@@ -393,6 +394,9 @@ public class WebAPI {
     public void navigateForward() {
         driver.navigate().forward();
     }
+    public void navigatebacward() {
+        driver.navigate().back();
+    }
 
     public String getTextByCss(String locator) {
         String st = driver.findElement(By.cssSelector(locator)).getText();
@@ -424,6 +428,11 @@ public class WebAPI {
     public void selectOptionByVisibleText(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByVisibleText(value);
+    }
+
+    public void selectOptionByIndex(WebElement element, int value) {
+        Select select = new Select(element);
+        select.selectByIndex(value);
     }
 
     public static void sleepFor(int sec) throws InterruptedException {
@@ -458,6 +467,16 @@ public class WebAPI {
 
         }
 
+    }
+    public void mouseHoverByWebElement(WebDriver driver,WebElement locator) {
+        try {
+            Actions action = new Actions(driver);
+            Actions hover = action.moveToElement(locator);
+        } catch (Exception ex) {
+            System.out.println("First attempt has been done, This is second try");
+            Actions action = new Actions(driver);
+            action.moveToElement(locator).perform();
+        }
     }
 
     //handling Alert
@@ -602,12 +621,145 @@ public class WebAPI {
 // team new methods
 
     // method to hover mouse and click
-    public static void HoverMouseAndClickt(WebDriver driver, WebElement element) {
-        Actions action= new Actions(driver);
+    public static void MouseHoverAndClickt(WebDriver driver, WebElement element) {
+        Actions action = new Actions(driver);
         action.moveToElement(element).perform();
+    }
+    public static void MouseHover(WebDriver driver, WebElement element) {
+        Actions action = new Actions(driver);
+        action.moveToElement(element);
 
+    }
+
+    //implicite wait time
+    public void ImplicitWaitTime(long WaitTime) {
+
+        driver.manage().timeouts().implicitlyWait(WaitTime, TimeUnit.SECONDS);
+    }
+
+    //Assert method to get title
+    public static void getTitle(String expectedTitle) {
+        String title = driver.getTitle();
+        Assert.assertEquals(title, expectedTitle, "title doesn't match");
+        System.out.println(title);
+    }
+
+    //Assert method to compare Text
+    public static void compare_Text(String expectedText, WebElement element) {
+        String actualText = element.getText();
+        Assert.assertEquals(actualText, expectedText, "The text doesn't match");
+        System.out.println(actualText);
+    }
+    //Assert method to compare Text
+    public static void compare_Text_text(String expectedText, String actueleResult) {
+        Assert.assertEquals(actueleResult, expectedText, "The text doesn't match");
+        System.out.println(actueleResult);
+    }
+
+
+    //Assert method to get url
+    public static void getUrl(String expectedUrl) {
+        String url = driver.getCurrentUrl();
+        Assert.assertEquals(url, expectedUrl, "URL doesn't match");
+        System.out.println(url);
+    }
+
+    //windows setup
+    public static void setUpWindow() {
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        driver.manage().window().fullscreen();
+    }
+
+    //method to wait
+    public static void waitForSeconds(long time) throws InterruptedException {
+        long Time = time * 1000;
+        Thread.sleep(Time);
+    }
+
+    //method window expend
+    public static void expendWindow() {
+        driver.manage().window().maximize();
+        driver.manage().window().fullscreen();
+    }
+
+//method  Scroll Up
+    public static void Page_Scroll_Up(WebDriver driver) {
+        Actions actions = new Actions(driver);
+        // Scroll Up using Actions class
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.HOME).perform();
+    }
+    //method  Scroll Down
+    public static void Page_Scroll_Down(WebDriver driver) {
+        Actions actions = new Actions(driver);
+        // Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+    }
+    //method  Scroll Down to The webElement
+    public static void Page_Scroll_DownToElement(WebElement element) {
+        Actions actions = new Actions(driver);
+        // Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).moveToElement(element);
+    }
+    //method  Scroll Down to The webElement
+    public static void Page_Scroll_DownToElementAndPerform(WebElement element) {
+        Actions actions = new Actions(driver);
+        // Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).moveToElement(element).perform();
+    }
+    //method  Scroll Down to The webElement
+    public static void Page_Scroll_DownToElementAndclick(WebElement element) {
+        Actions actions = new Actions(driver);
+        // Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).moveToElement(element).click();
+    }
+
+    public static void setUpBroserbases(WebDriver driver){
+        driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+//        driver.manage().window().fullscreen();
+    }
+
+    //***** Method to get PageLinksList ***************
+    public static List<WebElement> PageLinksList(WebDriver driver){
+        List<WebElement> linkslist = driver.findElements(By.tagName("a"));
+        linkslist.addAll(driver.findElements(By.tagName("img")));
+        System.out.println("Total number of links and images---->>> " + "links list size is"+" " + linkslist.size());
+        for (int i = 0; i < linkslist.size(); i++) {
+            System.out.println(linkslist.get(i).getText());
+            System.out.println(linkslist.get(i).getAttribute("href"));
+        }
+        return linkslist;
+    }
+    // method to switch from parent Window to child Window
+    public static void switchWindowTOChildWindow (WebDriver driver){
+        String parentWindow = driver.getWindowHandle();
+        for( String childWindow: driver.getWindowHandles()){
+            driver.switchTo().window(childWindow);
+        }
+    }
+    // method to switchback to parent Window
+    public static void switchChildWindowTOParentWindow (WebDriver driver){
+        String childWindow = driver.getWindowHandle();
+        driver.close();
+        for( String parentWindow: driver.getWindowHandles()){
+            driver.switchTo().window(parentWindow);
+        }
+      }
+    // method to close PopUpWindows by clicking on close button by XPATH
+    public static void PopUpWindowClose2(WebDriver driver, String locator) {
+        driver.findElement(By.xpath(locator)).click();
+    }
+
+    //Press Enter/Return Key method
+    public static void clickEnterKeyboard (WebElement element,String value) {
+        element.sendKeys(value, Keys.ENTER);
     }
 
 
 
+
+
 }
+

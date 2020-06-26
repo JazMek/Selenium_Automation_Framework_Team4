@@ -1,42 +1,44 @@
 package testHome;
 
-import Home.BaseClass;
-import Home.HomePage;
 import common.WebAPI;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static Home.BaseClass.*;
-import static Home.HomePage.*;
+import java.io.IOException;
+
+import static Home.LoginPage.*;
 
 public class TestHomePage extends WebAPI {
 
-
-// Test case 01: check if the given Title  navigate to : booking.com.
-
-   public static String url;
-
+    public static String url;
     @Test
-       public void testcheckTitle(){
-
-           init();
-           homePage.checkTitle();
-
-
-         }
-
+    public void Testcheck_LindingPage(){
+        init();
+        homePage.check_LindingPage();
+    }
   @Test
-
-
+       public void testcheckTitle(){
+       init();
+       homePage.checkTitle();
+   }
+  @Test
        public void testcheckTexte(){
-      init();
-      homePage.checkTexte();
-  }
-
-
-
-
-
-
+       init();
+       homePage.checkTexte();
+   }
+   @Test
+        public void Testcheck_Punta_Cana() throws InterruptedException {
+        init();
+        loginPage.loginToBooking();
+        homePage.check_Punta_Cana();
+    }
+    @Test
+    public void Check_brokenLink() throws IOException {
+        init();
+        homePage.brokenLink();
+    }
+    @Test
+    public void TestCheckPagelistLinks(){
+        init();
+        homePage.CheckPagelistLinks();
+    }
 }

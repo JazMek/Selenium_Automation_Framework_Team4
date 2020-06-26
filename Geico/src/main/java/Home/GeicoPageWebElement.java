@@ -1,19 +1,29 @@
 package Home;
 
-public class GeicoPageWebElement {
+import common.WebAPI;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import utility.DataReader;
 
-    public static final String searchBoxCSS ="#twotabsearchtextbox";
-    public static final String searchButtonCSS ="#nav-search > form > div.nav-right > div > input";
-    public static final String signinButtonXP="//div[@id='nav-flyout-ya-signin']//span[@class='nav-action-inner'][contains(text(),'Sign in')]";
-    public static final String signinButton2CSS="#nav-flyout-ya-signin > a > span";
-    public static final String userNameFieldXP =" //input[@id='ap_email']";
-    public static final String continueButtonXP="//input[@id='continue']";
-    public static final String passWordFieldXP=" //input[@id='ap_password']";
-    public static final String loginButtonID="signInSubmit";
-    public static final String signinCSS ="#nav-link-accountList > div > span";
+public class GeicoPageWebElement extends WebAPI{
 
+    public  static HomePage homePage;
+    public  static GeicoPageWebElement geicoPageWebElement;
 
+    public static void init(){
+        homePage= PageFactory.initElements(driver, HomePage.class);
+        geicoPageWebElement = PageFactory.initElements(driver,GeicoPageWebElement.class);
+        setUpBroserbases(driver);
+    }
 
+    public static final String LogoXP ="//body/header/div/a[1]";
+    @FindBy(how= How.XPATH,using = LogoXP)
+    public static WebElement Logo;
+    public static final String Enter_your_Zip_codeXP ="//input[@placeholder='Enter Your ZIP']";
+    @FindBy(how= How.XPATH,using = Enter_your_Zip_codeXP)
+    public static WebElement Enter_your_Zip_code;
 
 
 
