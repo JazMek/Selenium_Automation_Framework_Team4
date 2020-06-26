@@ -16,7 +16,9 @@ public class NetflixPageWebElement {
     public static WebElement passWordField;
     @FindBy(how= How.XPATH,using=signinButton2XP)
     public static  WebElement signinButton2;
-
+    public static final String enterSearchXPATH ="//div[@class='our-story-card hero-card vlv']//input[@name='email']";
+    @FindBy(how= How.XPATH,using= enterSearchXPATH)
+    public static WebElement enterSearch;
 
 
 

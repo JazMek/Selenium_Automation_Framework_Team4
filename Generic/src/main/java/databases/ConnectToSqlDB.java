@@ -1,5 +1,5 @@
 package databases;
-
+import com.google.gson.internal.$Gson$Types;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,27 +7,22 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
 /**
  *
  */
-
 public class ConnectToSqlDB {
-
     public static Connection connect = null;
     public static Statement statement = null;
     public static PreparedStatement ps = null;
-    public static ResultSet resultSet = null;
-
+    public static ResultSet resultSet= null;
     public static Properties loadProperties() throws IOException {
         Properties prop = new Properties();
         //InputStream ism = new FileInputStream("/secret.properties");
-        InputStream ism = new FileInputStream("../Generic/src/main/secret.properties");
+        InputStream ism = new FileInputStream("C:\\Users\\lamar\\IdeaProjects\\Selenium_Automation_Framework_Team4\\Generic\\src\\main\\java\\secret.properties");
         prop.load(ism);
         ism.close();
         return prop;
     }
-
     public static Connection connectToSqlDatabase() throws IOException, SQLException, ClassNotFoundException {
         Properties prop = loadProperties();
         String driverClass = prop.getProperty("MYSQLJDBC.driver");
@@ -39,15 +34,13 @@ public class ConnectToSqlDB {
         System.out.println("Database is connected");
         return connect;
     }
-
-    public List<String> readDataBase(String tableName, String columnName)throws Exception {
+    public static List<String> readDataBase(String accounts, String username )throws Exception {
         List<String> data = new ArrayList<String>();
-
         try {
             connectToSqlDatabase();
             statement = connect.createStatement();
-            resultSet = statement.executeQuery("select * from " + tableName);
-            data = getResultSetData(resultSet, columnName);
+            resultSet = statement.executeQuery("select * from " + accounts);
+            data = getResultSetData(resultSet, "username");
         } catch (ClassNotFoundException e) {
             throw e;
         }finally{
@@ -55,8 +48,7 @@ public class ConnectToSqlDB {
         }
         return data;
     }
-
-    private void close() {
+    public static void close() {
         try{
             if(resultSet != null){
                 resultSet.close();
@@ -68,19 +60,17 @@ public class ConnectToSqlDB {
                 connect.close();
             }
         }catch(Exception e){
-
         }
     }
-
-    private List<String> getResultSetData(ResultSet resultSet2, String columnName) throws SQLException {
+    public static List<String> getResultSetData(ResultSet resultSet, String username) throws SQLException {
         List<String> dataList = new ArrayList<String>();
         while(resultSet.next()){
-            String itemName = resultSet.getString(columnName);
+            String itemName = resultSet.getString("username");
             dataList.add(itemName);
+            //System.out.println(itemName);
         }
         return dataList;
     }
-
     public void insertDataFromArrayToSqlTable(int [] ArrayData, String tableName, String columnName)
     {
         try {
@@ -104,7 +94,6 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
-
     public void insertDataFromStringToSqlTable(String ArrayData, String tableName, String columnName)
     {
         try {
@@ -120,15 +109,13 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
-
-    public List<String> directDatabaseQueryExecute(String passQuery, String dataColumn)throws Exception {
+    public static List<String> directDatabaseQueryExecute(String passQuery, String username)throws Exception {
         List<String> data = new ArrayList<String>();
-
         try {
             connectToSqlDatabase();
             statement = connect.createStatement();
-            resultSet = statement.executeQuery(passQuery);
-            data = getResultSetData(resultSet, dataColumn);
+            resultSet = statement.executeQuery("select * from " + "accounts");
+            data = getResultSetData(resultSet, username);
         } catch (ClassNotFoundException e) {
             throw e;
         }finally{
@@ -136,7 +123,6 @@ public class ConnectToSqlDB {
         }
         return data;
     }
-
     /*public void insertDataFromArrayListToSqlTable(List<Student> list, String tableName, String columnName)
     {
         try {
@@ -173,7 +159,6 @@ public class ConnectToSqlDB {
                 ps.setObject(1,st);
                 ps.executeUpdate();
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -182,8 +167,6 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
-
-
     public void insertProfileToSqlTable(String tableName, String columnName1, String columnName2)
     {
         try {
@@ -192,8 +175,6 @@ public class ConnectToSqlDB {
             ps.setString(1,"Ankita Sing");
             ps.setInt(2,3590);
             ps.executeUpdate();
-
-
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -202,27 +183,57 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
-
-    public static List<User> readUserProfileFromSqlTable()throws IOException, SQLException, ClassNotFoundException {
-        List<User> list = new ArrayList<>();
-        User user = null;
+//        public static List<User> readUserProfileFromSqlTable()throws IOException, SQLException, ClassNotFoundException {
+//        List<User> list = new ArrayList<>();
+//        User user = null;
+//        try{
+//            Connection conn = connectToSqlDatabase();
+//            String query = "SELECT * FROM Students";
+//            // create the java statement
+//            Statement st = conn.createStatement();
+//            // execute the query, and get a java resultset
+//            ResultSet rs = st.executeQuery(query);
+//            // iterate through the java resultset
+//            while (rs.next())
+//            {
+//                String name = rs.getString("stName");
+//                String id = rs.getString("stID");
+//                String dob = rs.getString("stDOB");
+//                //System.out.format("%s, %s\n", name, id);
+//                user = new User(name,id, dob);
+//                list.add(user);
+//            }
+//            st.close();
+//        }catch (Exception e){
+//            System.err.println("Got an exception! ");
+//            System.err.println(e.getMessage());
+//        }
+//        return list;
+//    }
+//    public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
+//        List<User> list = readUserProfileFromSqlTable();
+//        for(User user:list){
+//            System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
+//        }
+//    }
+    //********** LAMARAs Data base connection for Netflix Account  **************************
+    public static List<User2Netflix> readUser2ProfileFromSqlTable()throws IOException, SQLException, ClassNotFoundException {
+        List<User2Netflix> list = new ArrayList<>();
+        User2Netflix user = null;
         try{
             Connection conn = connectToSqlDatabase();
-            String query = "SELECT * FROM Students";
+            String query = "SELECT * FROM accounts";
             // create the java statement
             Statement st = conn.createStatement();
             // execute the query, and get a java resultset
             ResultSet rs = st.executeQuery(query);
             // iterate through the java resultset
             while (rs.next())
-            {
-                String name = rs.getString("stName");
-                String id = rs.getString("stID");
-                String dob = rs.getString("stDOB");
-                //System.out.format("%s, %s\n", name, id);
-                user = new User(name,id, dob);
+            { 
+                String name = rs.getString("username");
+                String Psw = rs.getString("password");
+                user = new User2Netflix(name,Psw);
                 list.add(user);
-
             }
             st.close();
         }catch (Exception e){
@@ -231,11 +242,14 @@ public class ConnectToSqlDB {
         }
         return list;
     }
-
     public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
-        List<User> list = readUserProfileFromSqlTable();
-        for(User user:list){
-            System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
+        List<User2Netflix> list = readUser2ProfileFromSqlTable();
+        for(User2Netflix user:list){
+            System.out.println(user.getUsername() + " " + user.getPassword());
         }
     }
+   
+
+
+
 }

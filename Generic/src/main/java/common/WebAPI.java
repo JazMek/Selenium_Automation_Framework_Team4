@@ -100,7 +100,7 @@ public class WebAPI {
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
                       @Optional("windows") String os, @Optional("10") String os_version, @Optional("chrome") String browserName, @Optional("83")
-                              String browserVersion, @Optional("https://www.booking.com") String url) throws IOException {
+                              String browserVersion, @Optional("https://www.amazon.com/") String url) throws IOException {
 
         if (useCloudEnv == true) {
             if (cloudEnvName.equalsIgnoreCase("browserstack")) {
@@ -150,7 +150,6 @@ public class WebAPI {
     }
     public WebDriver getCloudDriver(String envName, String envUsername, String envAccessKey, String os, String os_version, String browserName,
                                     String browserVersion) throws IOException {
-
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("os", "OS X");
         caps.setCapability("os_version", "Catalina");
@@ -249,10 +248,7 @@ public class WebAPI {
         Date date = new Date();
         df.format(date);
         System.setProperty("current.date",date.toString().replace(" ","_").replace(":","_"));
-
         Date d = new Date();
-
-
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(file,
@@ -261,7 +257,6 @@ public class WebAPI {
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot " + e.getMessage());
         }
-
     }
     public static String convertToString(String st) {
         String splitString = "";
@@ -285,7 +280,6 @@ public class WebAPI {
         } catch (Exception ex) {
             driver.findElement(By.id(locator)).sendKeys(value);
         }
-
     }
     public void clickByXpath(String locator) {
         driver.findElement(By.xpath(locator)).click();
@@ -318,7 +312,6 @@ public class WebAPI {
             String st = web.getText();
             text.add(st);
         }
-
         return text;
     }
     public static List<String> getTextFromWebElements(String locator, WebDriver driver1) {
@@ -329,7 +322,6 @@ public class WebAPI {
             String st = web.getText();
             text.add(st);
         }
-
         return text;
     }
     public static List<WebElement> getListOfWebElementsByCss(String locator) {
@@ -365,7 +357,7 @@ public class WebAPI {
     public String getTextById(String locator) {
         return driver.findElement(By.id(locator)).getText();
     }
-    public String getTextByName(String locator) {
+    public String getTextByName(String movie, String locator) {
         String st = driver.findElement(By.name(locator)).getText();
         return st;
     }
@@ -393,9 +385,7 @@ public class WebAPI {
             WebElement element = driver.findElement(By.cssSelector(locator));
             Actions action = new Actions(driver);
             action.moveToElement(element).perform();
-
         }
-
     }
     public void mouseHoverByXpath(String locator) {
         try {
@@ -407,9 +397,7 @@ public class WebAPI {
             WebElement element = driver.findElement(By.xpath(locator));
             Actions action = new Actions(driver);
             action.moveToElement(element).perform();
-
         }
-
     }
     //handling Alert
     public void okAlert() {
@@ -495,9 +483,7 @@ public class WebAPI {
         //Step:1-->Get the list of all the links and images
         List<WebElement> linkslist = driver.findElements(By.tagName("a"));
         linkslist.addAll(driver.findElements(By.tagName("img")));
-
         System.out.println("Total number of links and images--------->>> " + linkslist.size());
-
         List<WebElement> activeLinks = new ArrayList<WebElement>();
         //Step:2-->Iterate linksList: exclude all links/images which does not have any href attribute
         for (int i = 0; i < linkslist.size(); i++) {
@@ -507,12 +493,9 @@ public class WebAPI {
             }
         }
         System.out.println("Total number of active links and images-------->>> " + activeLinks.size());
-
         //Step:3--> Check the href url, with http connection api
         for (int j = 0; j < activeLinks.size(); j++) {
-
             HttpURLConnection connection = (HttpURLConnection) new URL(activeLinks.get(j).getAttribute("href")).openConnection();
-
             connection.connect();
             String response = connection.getResponseMessage();
             connection.disconnect();
@@ -520,9 +503,7 @@ public class WebAPI {
         }
     }
     public void inputValueInTextBoxByWebElement(WebElement webElement, String value) {
-
         webElement.sendKeys(value + Keys.ENTER);
-
     }
     public void clearInputBox(WebElement webElement) {
         webElement.clear();
@@ -531,12 +512,11 @@ public class WebAPI {
         String text = webElement.getText();
         return text;
     }
-    //*************    team's new methods   ************************************************************8
+    //*************  Team's new methods   ************************************************************8
     // method to hover mouse and click
     public static void HoverMouseAndClick(WebDriver driver, WebElement element) {
         Actions action= new Actions(driver);
         action.moveToElement(element).perform();
-
     }
     //Assert method to get title
     public static void getTitle(String expectedTitle){
@@ -559,10 +539,9 @@ public class WebAPI {
         //driver.manage().window().setPosition(new Point(0, -1000));
     //Set Size of browser
         //driver.manage().window().setSize(new Dimension(1920, 1080));
-    
     // Get Page Source: This command is used to get the source code of the web page. It returns a string.
      public static void GetPageSource(){
-         //driver.getPageSource();  or
+        //driver.getPageSource();  or
          String sourceCode = driver.getPageSource();
     }
     // Navigate Forward
@@ -575,8 +554,89 @@ public class WebAPI {
     }
     //Navigate Directly To a specific URL
     public static void NavigateDirectlyToURL(){
-        driver.navigate().to("URL");
+        driver.navigate().to("https://www.netflix.com");
         //driver.navigate().to("https://www.amazon.com");
     }
+    //scroll Page down to the end
+    public static void scrollPageDown(WebDriver driver){
+        JavascriptExecutor js=((JavascriptExecutor) driver);
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
+    //scroll Page down to the view element
+    //WebElement element = driver.findElement(By.xpath());
+    public static void scrollIntoView(WebElement element, WebDriver driver){
+        JavascriptExecutor js=((JavascriptExecutor) driver);
+        js.executeScript("arguments[0].scrollIntoView(true)",element);
+    }
+    //method Scroll Up
+    public static void Page_Scroll_Up(WebDriver driver) {
+        Actions actions = new Actions(driver);
+        // Scroll Up using Actions class
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.HOME).perform(); }
+        //method Scroll Down
+    public static void Page_Scroll_Down(WebDriver driver) {
+        Actions actions = new Actions(driver);
+        // Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform(); }
+        //method Scroll Down
+    public static void PageScrollDown(WebDriver driver) {
+        Actions actions = new Actions(driver);
+        // Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform(); }
+        //method Scroll Down to The webElement
+    public static void Page_Scroll_DownToElement(WebElement element) {
+        Actions actions = new Actions(driver);
+        // Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).moveToElement(element).click(); }
+
+        //method Scroll left Or Right to The webElement
+    public static void PageScrollToElement(WebElement element) {
+        Actions actions = new Actions(driver);
+        // Scroll Down using Actions class
+        actions.moveToElement(element).click(); }
+        //navigate backward   
+        public void navigatebackward() {
+        driver.navigate().back();
+    }
+        //***** Method to get PageLinksList ***************
+    public static List<WebElement> PageLinksList(WebDriver driver){
+        List<WebElement> linkslist = driver.findElements(By.tagName("a"));
+        linkslist.addAll(driver.findElements(By.tagName("img")));
+        System.out.println("Total number of links and images---->>> " + "links list size is"+"  " + linkslist.size());
+        for (int i = 0; i < linkslist.size(); i++) {
+            System.out.println(linkslist.get(i).getText());
+            System.out.println(linkslist.get(i).getAttribute("href")); 
+        }
+       return linkslist;
+   }
+    // method to switch from parent Window to child Window
+    public static void switchWindowTOChildWindow (WebDriver driver){
+        String parentWindow = driver.getWindowHandle();
+        for( String childWindow: driver.getWindowHandles()){
+            driver.switchTo().window(childWindow);
+        }
+    }
+    // method to switchback to parent Window
+    public static void switchChildWindowTOParentWindow (WebDriver driver){
+        String childWindow = driver.getWindowHandle();
+        driver.close();
+        for( String parentWindow: driver.getWindowHandles()){
+            driver.switchTo().window(parentWindow);
+        }
+    }
+    // method to close PopUpWindows by clicking on close button by XPATH
+    public static void PopUpWindowClose2(WebDriver driver, String locator) {
+        driver.findElement(By.xpath(locator)).click();
+    }
+    //Press Enter/Return Key method
+    public static void clickEnterKeyboard (WebElement element,String value) {
+        element.sendKeys(value, Keys.ENTER);
+    }
+
 
 }
+    
+    
+    
+
+

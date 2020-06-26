@@ -17,7 +17,7 @@
 
     <test name="United Airlines Home">
         <classes>
-            <!--            <class name="home.TestHomePage"></class>-->
+                        <class name="testHome.TestHomePage"></class>
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->

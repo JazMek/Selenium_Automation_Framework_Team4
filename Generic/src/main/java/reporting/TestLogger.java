@@ -19,4 +19,19 @@ public class TestLogger {
         Reporter.log(message,true);
         ExtentTestManager.getTest().log(LogStatus.INFO, message + "<br>");
     }
+
+//    @Test
+//    public void testSearchProduct() throws InterruptedException {
+//        TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+//        }.getClass().getEnclosingMethod().getName()));
+//        getInitElements();
+//        homePage.searchProduct();
+//        homePage.validateSearchProduct();
+//    } 
+    
+    // Test logger reporting 
+//    TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+//    }.getClass().getEnclosingMethod().getName()));
+    
+    
 }

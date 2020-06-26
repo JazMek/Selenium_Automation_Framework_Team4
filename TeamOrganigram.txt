@@ -57,7 +57,7 @@
 
 * United_Airlines :
           Karim:HELP
-          Lamara:DEALS
+          Lamara:Search box
           Ibrahim:MILEAGEPLUS® PROGRAM
           Achour:TRAVEL INFO
           Hakim:MY TRIPS
