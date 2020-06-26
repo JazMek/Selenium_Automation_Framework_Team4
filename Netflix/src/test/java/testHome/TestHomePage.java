@@ -1,27 +1,47 @@
 package testHome;
 
-import Home.BaseClass;
+
 import Home.HomePage;
 import common.WebAPI;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
+import java.awt.*;
+
+import static Home.HomePage.*;
+
 public class TestHomePage extends WebAPI {
 
 
-    public static HomePage homePage;
-    public static BaseClass baseClass;
-
-    public static void init() {
-        homePage = PageFactory.initElements(driver, HomePage.class);
-        baseClass = PageFactory.initElements(driver, BaseClass.class);
-    }
 
     @Test
     public void searchField() throws InterruptedException {
         init();
-
-        baseClass.loginToAmazonAccount();
-
+        homePage.loginToAmazonAccount();
     }
+    @Test
+    public void TestDVDButton(){
+        init();
+        homePage.setDVD();
+    }
+    @Test
+    public void TestDVDPageTitle(){
+        init();
+        homePage.setDVDPageTitle();
+    }
+    @Test
+    public void TestKidsTitle(){
+        init();
+        homePage.setKidsTitle();
+    }
+    @Test
+    public void TestPokemonSeries(){
+    init();
+    homePage.setPokemonSeries();
+}
+    @Test
+    public void testClickEnterKeyboard() throws AWTException, InterruptedException {
+        init();
+        homePage.clickEnterKeyboard1();
+}
 }

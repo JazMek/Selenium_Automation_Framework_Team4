@@ -12,12 +12,12 @@
     <parameter name="os_version" value="Catalina"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="83"/>
-    <parameter name="url" value="https://www.empirebluecross-medicareadvantage.com/"/>
+    <parameter name="url" value="https://www.empireblue.com/"/>
 
 
     <test name="Empire Home">
         <classes>
-            <!--            <class name="home.TestHomePage"></class>-->
+                        <class name="testHome.TestHomePage"></class>
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->
             <!--            <class name="home.TestHomePage"/>-->

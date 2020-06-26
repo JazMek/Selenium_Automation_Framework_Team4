@@ -8,6 +8,8 @@
 
 # Log file
 *.log
+TeamOrganigram.txt
+Selenium_Automation_Framework_Team4.iml
 
 # BlueJ files
 *.ctxt
@@ -17,7 +19,7 @@
 
 # Package Files #
 *.xml
-
+target
 *.war
 *.nar
 *.ear

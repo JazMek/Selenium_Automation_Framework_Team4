@@ -22,7 +22,7 @@ public class ConnectToSqlDB {
     public static Properties loadProperties() throws IOException {
         Properties prop = new Properties();
         //InputStream ism = new FileInputStream("/secret.properties");
-        InputStream ism = new FileInputStream("../Generic/src/main/secret.properties");
+        InputStream ism = new FileInputStream("/Users/salahmouloudi/IdeaProjects/Selenium_Automation_Framework_Team4/Generic/src/main/java/secret.properties");
         prop.load(ism);
         ism.close();
         return prop;
@@ -232,10 +232,46 @@ public class ConnectToSqlDB {
         return list;
     }
 
-    public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
-        List<User> list = readUserProfileFromSqlTable();
-        for(User user:list){
-            System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
+//    public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
+//        List<User> list = readUserProfileFromSqlTable();
+//        for(User user:list){
+//            System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
+//        }
+        public static List<UnitedList> getUnitedListFromSqlTable()throws IOException, SQLException, ClassNotFoundException {
+            List<UnitedList> list = new ArrayList<>();
+            UnitedList user = null;
+            try{
+                Connection conn = connectToSqlDatabase();
+                String query = "SELECT * FROM UnitedTable";
+// create the java statement
+                Statement st = conn.createStatement();
+// execute the query, and get a java resultset
+                ResultSet rs = st.executeQuery(query);
+// iterate through the java resultset
+                while (rs.next())
+                {
+                    String from = rs.getString("from");
+                    String to = rs.getString("to");
+                    String month = rs.getString("month");
+                    String Adults = rs.getString("Adults(18-64)");
+                    String Seniors= rs.getString("Seniors(65+)");
+                    String Children1= rs.getString("Children(15-17)");
+                    String Children2= rs.getString("Children(12-14)");
+                    user= new UnitedList(from ,to, month,Adults,Seniors,Children1,Children2);
+                    list.add(user);
+
+                }
+                st.close();
+            }catch (Exception e){
+                System.err.println("Got an exception! ");
+                System.err.println(e.getMessage());
+            }
+            return list;
+        }
+        public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
+            List<UnitedList> list = getUnitedListFromSqlTable();
+            for(UnitedList user :list){
+                System.out.println(user.getFrom() + " " + user.getTo()+ " " + user.getMonth()+ " " + user.getAdults() + " " + user.getSeniors()+ " " + user.getChildren1()+ " " + user.getChildren2());
+            }
         }
     }
-}
