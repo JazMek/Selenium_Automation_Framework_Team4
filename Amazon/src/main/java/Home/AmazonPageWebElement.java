@@ -20,9 +20,9 @@ public class AmazonPageWebElement  {
  public static final String checkPagelinkXPATH = "//*[@id=\"zg-center-div\"]/div[2]/div/ul/li[1]/a";
  // mouse hover and click in Baby page Web Elements
  public static final String hoverMouseCSS = "#nav-subnav > a:nth-child(5) > span.nav-a-content";
+ //public static final String hoverMouseCSS="#nav-link-accountList > div > span";
  public static final String clickUnderMenuItemXPATH = "//*[@id='nav-flyout-aj:https://m.media-amazon.com/images/G/01/verticalstores/megamenu/us_baby_megamenu_test_2019_2.json:subnav-sl-megamenu-1:0']/div[2]/div/div[2]/ul/li[4]/a";
- // click check box option
- public static final String CheckBoxCSS = "#leftNav > ul:nth-child(6) > div > li > span > span > div > label > input[type=checkbox]";
+
  //  specify the object location strategy for new releases page WebElements
  @FindBy(how = How.CSS, using = clickNewReleasePageCss)
  public static WebElement clickNewReleasePage;
@@ -45,9 +45,25 @@ public class AmazonPageWebElement  {
  public static WebElement hoverMouse;
  @FindBy(how = How.XPATH, using = clickUnderMenuItemXPATH)
  public static WebElement clickUnderMenuItemX;
+ // click check box option
+ public static final String CheckBoxXPATH = "//*[@id=\"leftNav\"]/ul[2]/div/li/span/span/div/label/input";
  //specify the object location strategy for check box
- @FindBy(how = How.CSS, using = CheckBoxCSS)
+ @FindBy(how = How.XPATH, using = CheckBoxXPATH)
  public static WebElement CheckBox1;
+ //search Dropdown Box webElements
+ public static final String searchDropdownBoxXP ="//select[@id='searchDropdownBox']";
+ @FindBy(how= How.XPATH ,using=searchDropdownBoxXP )
+ public static WebElement searchDropdownBox;
+//search box items
+public static final String SearchBoxXP="//input[@id='twotabsearchtextbox']";
+ @FindBy(how= How.XPATH, using=SearchBoxXP)
+ public static WebElement SearchBox;
+
+
+
+
+
+
 }
 
 

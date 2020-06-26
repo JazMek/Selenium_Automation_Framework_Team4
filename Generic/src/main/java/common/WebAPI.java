@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -110,7 +111,7 @@ public class WebAPI {
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
                       @Optional("windows") String os, @Optional("10") String os_version, @Optional("chrome") String browserName, @Optional("83")
-                              String browserVersion, @Optional("https://www.google.com") String url) throws IOException {
+                              String browserVersion, @Optional("https://www.sprint.com/") String url) throws IOException {
 
         if (useCloudEnv == true) {
             if (cloudEnvName.equalsIgnoreCase("browserstack")) {
@@ -389,11 +390,14 @@ public class WebAPI {
         String url = driver.getCurrentUrl();
         return url;
     }
-
+   // navigateForward
     public void navigateForward() {
         driver.navigate().forward();
     }
-
+    // navigatBackWindow
+    public void navigatebackWindow() {
+        driver.navigate().back();
+    }
     public String getTextByCss(String locator) {
         String st = driver.findElement(By.cssSelector(locator)).getText();
         return st;
@@ -543,6 +547,11 @@ public class WebAPI {
             System.out.println("ID locator didn't work");
         }
         try {
+            driver.findElement(By.xpath(locator)).sendKeys(value, Keys.ENTER);
+        } catch (Exception ex1) {
+            System.out.println("xpath locator didn't work");
+        }
+        try {
             driver.findElement(By.name(locator)).sendKeys(value, Keys.ENTER);
         } catch (Exception ex2) {
             System.out.println("Name locator didn't work");
@@ -610,7 +619,103 @@ public class WebAPI {
 
     }
 
+    //Assert methode to get title
+    public static void getTitle(String expectedTitle){
+        String title=driver.getTitle();
+        Assert.assertEquals(title ,expectedTitle,"title doesn't match");
+        System.out.println(title);
+    }
+    //Assert methode to get url
+    public static void getUrl(String expectedUrl){
+        String url=driver.getCurrentUrl();
+        Assert.assertEquals(url,expectedUrl,"title doesn't match");
+        System.out.println(url);
+    }
+    //windows setup and delete cookies
+    public static void setUpWindow(){
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        //driver.manage().window().fullscreen();
+    }
+
+    //scroll Page down to the end
+    public static void scrollPageDown(WebDriver driver){
+        JavascriptExecutor js=((JavascriptExecutor) driver);
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
+
+    //scroll Page down to the view element
+//WebElement element = driver.findElement(By.xpath());
+
+    public static void scrollIntoView(WebElement element, WebDriver driver){
+        JavascriptExecutor js=((JavascriptExecutor) driver);
+        js.executeScript("arguments[0].scrollIntoView(true)",element);
+    }
+    //method Scroll Up
+    public static void Page_Scroll_Up(WebDriver driver) {
+        Actions actions = new Actions(driver);
+// Scroll Up using Actions class
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.HOME).perform(); }
+
+    //method Scroll left Or Right to The webElement
+    public static void PageScrollToElement(WebElement element) {
+        Actions actions = new Actions(driver);
+// Scroll Down using Actions class
+        actions.moveToElement(element).click(); }
+
+// method to close PopUpWindows by clicking on close button by CSS
+    public static void PopUpWindowClose1(WebDriver driver, String locator) {
+        driver.findElement(By.cssSelector(locator)).click();
+    }
+    // method to close PopUpWindows by clicking on close button by XPATH
+    public static void PopUpWindowClose2(WebDriver driver, String locator) {
+        driver.findElement(By.xpath(locator)).click();
+    }
 
 
+    // method to clean cockis
+    public static void deletCookies(WebDriver driver){
+        driver.manage().deleteAllCookies();
 
 }
+    //***** Method to get Page Links List ***************
+    public static List<WebElement> PageLinksList(WebDriver driver){
+        List<WebElement> linkslist = driver.findElements(By.tagName("a"));
+        linkslist.addAll(driver.findElements(By.tagName("img")));
+        System.out.println("Total number of links and images--------->>> " + linkslist.size());
+        for (int i = 0; i < linkslist.size(); i++) {
+            System.out.println(linkslist.get(i).getText());
+            System.out.println(linkslist.get(i).getAttribute("href"));
+        }
+        return linkslist;
+    }
+ // method to switch from parent Window to child Window
+  public static void switchWindowTOChildWindow (WebDriver driver){
+        String parentWindow = driver.getWindowHandle();
+      for( String childWindow: driver.getWindowHandles()){
+          driver.switchTo().window(childWindow);
+      }
+  }
+    // method to switchback to parent Window
+    public static void switchChildWindowTOParentWindow (WebDriver driver){
+        String childWindow = driver.getWindowHandle();
+         driver.close();
+        for( String parentWindow: driver.getWindowHandles()){
+            driver.switchTo().window(parentWindow);
+        }
+
+
+    }
+
+// Press keyboard keys in selenium
+    //Press Enter/Return Key method
+public static void clickEnterKeyboard (WebElement element,String value) {
+        element.sendKeys(value,Keys.ENTER);
+
+}
+
+    }
+
+
+
+

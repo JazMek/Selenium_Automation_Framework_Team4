@@ -66,6 +66,17 @@
 
         </dependency>
 
+        <!--           add dependencies for excel -->
+
+<!--        <dependency>-->
+<!--            <groupId>org.osgl</groupId>-->
+<!--            <artifactId>excel-reader</artifactId>-->
+
+<!--        </dependency>-->
+
+
+
+
         <!--            Extend Report-->
         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
         <dependency>
@@ -94,6 +105,40 @@
             <artifactId>commons-io</artifactId>
 
         </dependency>
+
+        <!--new dependecy for excel heperlink-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi-ooxml</artifactId>-->
+
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Thanks for using https://jar-download.com &ndash;&gt;-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi-ooxml-schemas</artifactId>-->
+
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>poi-scratchpad</artifactId>-->
+
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.poi/ooxml-schemas &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>ooxml-schemas</artifactId>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.poi/openxml4j &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.poi</groupId>-->
+<!--            <artifactId>openxml4j</artifactId>-->
+
+<!--        </dependency>-->
+
 
 
     </dependencies>

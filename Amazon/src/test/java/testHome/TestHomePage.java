@@ -2,10 +2,18 @@ package testHome;
 
 import Home.HomePage;
 import common.WebAPI;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import Home.AmazonPageWebElement;
+import utility.DataReader;
+
+import java.io.IOException;
+
 import static Home.AmazonPageWebElement.*;
+//import static Home.HomePage.homePage;
+//import static Home.HomePage.init;
 
 
 public class TestHomePage extends WebAPI {
@@ -77,10 +85,44 @@ public class TestHomePage extends WebAPI {
     // step 03- hover mouse and click on frames web element
     homePage.HoverMouseAndClickt(driver,hoverMouse);
     //Thread.sleep( 3000);
+        homePage.ClickUnderMenuItemX();
       //step 04- check amazon prime box option
+        sleepFor(2);
     homePage.checkBox();
-
 }
+//test case 06- check drop down search list Amazon
+    @Test
+    public void TestCheckDropDownSearchList() {
+        init();
+        homePage.CheckDropDownSearchList();
+    }
+// test case 07 to check the page broken links
+    @Test
+    public void TestCheckBrokenLink() throws IOException {
+        init();
+        homePage.CheckBrokenLink();
+    }
+    // test to get all the page links
+    @Test
+    public void getPageLinks(){
+        init();
+        PageLinksList(driver);
+    }
+    // test user can search for items in home page search box
+public String path="C:/Users/ssbra/Desktop/Excel_files_Project/AmazonList.xlsx";
+    @DataProvider
+    public Object[][] getTestAmazonList() throws IOException, InvalidFormatException, InvalidFormatException {
+        Object data [][]= DataReader.fileReader3("MySearchList",path);
+        return data;
+    }
+    @Test(dataProvider = "getTestAmazonList")
+    public void testSearchBoxField(String inputData){
+        init();
+        homePage.SearchBoxField(inputData);
+    }
+
+
+
 
 
 }

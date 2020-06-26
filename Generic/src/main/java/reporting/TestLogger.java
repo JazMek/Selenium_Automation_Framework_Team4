@@ -19,4 +19,8 @@ public class TestLogger {
         Reporter.log(message,true);
         ExtentTestManager.getTest().log(LogStatus.INFO, message + "<br>");
     }
+// reporting enhancement statement
+//     TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+//    }.getClass().getEnclosingMethod().getName()));
+
 }

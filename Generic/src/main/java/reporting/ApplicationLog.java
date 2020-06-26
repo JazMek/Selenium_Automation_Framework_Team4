@@ -6,4 +6,7 @@ public class ApplicationLog {
         TestLogger.log("Browser is launching");
 
     }
+
+
+
 }
